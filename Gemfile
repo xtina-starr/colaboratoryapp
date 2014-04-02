@@ -17,9 +17,11 @@ gem "binding_of_caller"
 #authentication
 gem 'omniauth'
 gem 'omniauth-vimeo'
+gem "omniauth-google-oauth2"
 
 #API wrapper
 gem 'vimeo'
+gem 'youtube_it'
 
 group :development do
   gem "better_errors"

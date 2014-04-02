@@ -1,7 +1,11 @@
 Colaboratory::Application.routes.draw do
 
-  get "/auth/:provider", to: "sessions#create"
+  get "/auth/:provider",          to: "sessions#create"
   get "/auth/:provider/callback", to: "sessions#create"
+  # get "/auth/soundcloud", to: "sessions#create"
+  # get "/auth/soundcloud/callback", to: "sessions#create"
+  # get "/auth/google", to: "sessions#google"
+  # get "/auth/google/callback", to: "sessions#google"
   # get 'auth/vimeo', to: 'vimeo'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
