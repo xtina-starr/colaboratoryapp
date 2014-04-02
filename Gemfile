@@ -10,6 +10,20 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'figaro'
+gem "binding_of_caller"
+
+
+
+#authentication
+gem 'omniauth'
+gem 'omniauth-vimeo'
+
+#API wrapper
+gem 'vimeo'
+
+group :development do
+  gem "better_errors"
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
