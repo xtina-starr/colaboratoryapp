@@ -25,6 +25,15 @@ group :development do
   gem "better_errors"
 end
 
+group :development, :test do
+  gem "rspec-rails", "~> 2.14.0"
+  gem "factory_girl_rails", "~> 4.2.1"
+end
+
+group :test do
+  gem "capybara", "~> 2.1.0"
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
