@@ -11,6 +11,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'binding_of_caller'
+gem 'omniauth'
+gem 'omniauth-soundcloud', '~> 1.0.0'
+gem 'soundcloud'
 
 group :development do
   gem 'better_errors'
