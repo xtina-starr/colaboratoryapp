@@ -2,6 +2,9 @@ Colaboratory::Application.routes.draw do
 
   get "/auth/:provider",          to: "sessions#create"
   get "/auth/:provider/callback", to: "sessions#create"
+
+  # resources :contents
+  resources :users
   # get "/auth/soundcloud", to: "sessions#create"
   # get "/auth/soundcloud/callback", to: "sessions#create"
   # get "/auth/google", to: "sessions#google"
