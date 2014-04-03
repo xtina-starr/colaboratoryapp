@@ -1,0 +1,3 @@
+class Souncloud < Provider
+
+end
