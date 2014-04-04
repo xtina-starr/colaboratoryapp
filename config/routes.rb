@@ -1,7 +1,13 @@
 Colaboratory::Application.routes.draw do
 
+  get "users/index"
+  get "users/show"
+  get "users/update"
+  root 'welcome#index'
+  get "welcome/index"
   get "/auth/:provider",          to: "sessions#create"
   get "/auth/:provider/callback", to: "sessions#create"
+  
 
   # resources :contents
   resources :users

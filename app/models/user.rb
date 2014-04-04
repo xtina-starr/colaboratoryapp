@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   def self.create_from_omniauth(auth_hash)
     self.create!(
-      username: auth_hash['info']['username']
+      username: auth_hash['info']['nickname']
       )
   end
 end
