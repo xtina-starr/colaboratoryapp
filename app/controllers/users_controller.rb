@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     @client = SoundcloudProvider.get_client(@user)
-    @track = @client.get('/me/tracks')
+    @tracks = @client.get('/me/tracks')
   end
 
   def update
