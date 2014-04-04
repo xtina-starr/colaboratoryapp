@@ -2,7 +2,7 @@ class CreateProviders < ActiveRecord::Migration
   def change
     create_table :providers do |t|
       t.integer :uid
-      t.string :type
+      t.string :provider_type
       t.string :token
       t.string :secret
       t.string :avatar

@@ -1,4 +1,5 @@
 class Provider < ActiveRecord::Base
+  # self.inheritance_column = nil
 
   def self.create_with_omniauth(auth_hash, user_id)
     self.create!(
@@ -9,7 +10,7 @@ class Provider < ActiveRecord::Base
       token: auth_hash['credentials']['token'],
       secret: auth_hash['credentials']['secret'],
       email: auth_hash['info']['email'],
-      type: auth_hash['provider'].titleize
+      provider_type: auth_hash['provider']
       )
     
   end
