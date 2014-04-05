@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def create
     auth_hash = request.env['omniauth.auth']
 
-    @user = User.create_from_omniauth(auth_hash)
+    @user = User.find_or_create_with_omniauth(auth_hash)
     @provider = Provider.create_with_omniauth(auth_hash, @user.id)
 
     
@@ -13,6 +13,11 @@ class SessionsController < ApplicationController
 
     # @client = Soundcloud.get_client
     # @track = @client.get('/me/tracks', :limit => 15)
+   end
+
+   def signout
+     session[:user] = nil
+     redirect_to "/", notice: "You have been successfully signed out."
    end
     # Vimeo
     # video = Vimeo::Advanced::Video.new(ENV["VIMEO_KEY"], ENV["VIMEO_SECRET"], token: auth_hash.extra.access_token.token, secret: auth_hash.extra.access_token.secret)
