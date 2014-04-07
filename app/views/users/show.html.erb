@@ -6,6 +6,11 @@
   <%= track["permalink_url"] %>
 <% end %>
 
+
 <% @videos["videos"]["video"].each do |v| %>
 <%= v["id"].inspect %>
 <% end %>
+
+<h2>Link another service</h2>
+<%= link_to("Vimeo", "/auth/vimeo") %>
+
