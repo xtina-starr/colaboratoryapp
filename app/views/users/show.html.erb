@@ -8,7 +8,8 @@
 
 
 <% @videos["videos"]["video"].each do |v| %>
-<%= v["id"].inspect %>
+<iframe src="//player.vimeo.com/video/<%= v["id"].inspect %>" width="500" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 <% end %>
 
 <h2>Link another service</h2>
