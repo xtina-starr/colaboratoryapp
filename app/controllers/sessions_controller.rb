@@ -6,16 +6,16 @@ class SessionsController < ApplicationController
 
     if current_user
       if @provider
-        raise
+        redirect_to user_path(current_user.id), notice: "This user already exists!"
       else
-        provider = Provider.create_from_omniauth(auth_hash, current_user.id)
+        provider = Provider.create_with_omniauth(auth_hash, current_user.id)
         redirect_to user_path(current_user.id), notice: "Account added!"
       end
     else
       if @provider
         session[:user_id] = @provider.user.id
         redirect_to user_path(user.id), notice: "You have successfully been signed in!"
-      elsif 
+      elsif
         @user = User.create_with_omniauth(auth_hash)
         session[:user_id] = @user.id
         provider = Provider.create_with_omniauth(auth_hash, @user.id)
@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
     # # @user = User.create_with_omniauth(auth_hash)
     # @provider = Provider.create_with_omniauth(auth_hash, @user.id)
 
-    
+
     # if @user.save
     #   session[:user_id] = @user.id
     #   redirect_to(user_path(@user.id))
@@ -35,7 +35,7 @@ class SessionsController < ApplicationController
 
     # @client = Soundcloud.get_client
     # @track = @client.get('/me/tracks', :limit => 15)
-   end
+  end
 
 
    def signout
@@ -48,10 +48,10 @@ class SessionsController < ApplicationController
 
     # video_embed = Vimeo::Advanced::Video.new(ENV["VIMEO_KEY"], ENV["VIMEO_SECRET"], token: auth_hash.extra.access_token.token, secret: auth_hash.extra.access_token.secret)
     # video_embed.get_presets({ page: "1", per_page: "10" })
-  
+
 
   def show
-    
+
   end
 
 end

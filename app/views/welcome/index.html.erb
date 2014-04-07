@@ -2,6 +2,7 @@
 <p>Find me in app/views/welcome/index.html.erb</p>
 
 <p>sign up with one of these providers</p>
-<%= link_to("Soundcloud", "/auth/soundcloud") %>
+<%= link_to("Soundcloud", "/auth/soundcloud", title: "Soundcloud") %>
+<%= link_to("Vimeo", "/auth/vimeo", title: "Vimeo") %>
 
 <%= link_to("Signout", sign_out_path) %>
