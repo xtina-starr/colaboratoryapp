@@ -1,16 +1,17 @@
 <h1>Hi <%= @user.username %>, </h1>
 
 <h2> Pull your content </h2>
-<%#= @tracks.first.keys %>
-<% @tracks.each do |track| %>
-  <%= track["permalink_url"] %>
+<% if current_user.providers.find_by(provider_type: "soundcloud") %>
+  <% @tracks.each do |track| %>
+    <%= track["permalink_url"] %>
+  <% end %>
 <% end %>
 
-
-<% @videos["videos"]["video"].each do |v| %>
-<iframe src="//player.vimeo.com/video/<%= v["id"] %>
-" width="500" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
+<% if current_user.providers.find_by(provider_type: "vimeo") %>
+  <% @videos["videos"]["video"].each do |v| %>
+    <iframe src="//player.vimeo.com/video/<%= v["id"] %>
+  " width="500" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  <% end %>
 <% end %>
 
 <h2>Link another service</h2>
