@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
         redirect_to user_path(current_user.id), notice: "This user already exists!"
       else
         provider = Provider.create_with_omniauth(auth_hash, current_user.id)
+
         redirect_to user_path(current_user.id), notice: "Account added!"
       end
     else
@@ -24,17 +25,7 @@ class SessionsController < ApplicationController
         redirect_to root_path, notice: "There was a problem signing in!"
       end
     end
-    # # @user = User.create_with_omniauth(auth_hash)
-    # @provider = Provider.create_with_omniauth(auth_hash, @user.id)
 
-
-    # if @user.save
-    #   session[:user_id] = @user.id
-    #   redirect_to(user_path(@user.id))
-
-
-    # @client = Soundcloud.get_client
-    # @track = @client.get('/me/tracks', :limit => 15)
   end
 
 

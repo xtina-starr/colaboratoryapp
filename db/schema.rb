@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20140403172916) do
   end
 
   create_table "providers", force: true do |t|
-    t.integer  "uid"
+    t.string   "uid"
     t.string   "provider_type"
     t.string   "token"
     t.string   "secret"
