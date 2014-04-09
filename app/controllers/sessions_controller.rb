@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   def create
     auth_hash = request.env['omniauth.auth']
-    @provider = Provider.find_by(uid: auth_hash[:uid])
+    @provider = Provider.find_by(uid: auth_hash[:uid].to_s)
 
     if current_user
       if @provider
