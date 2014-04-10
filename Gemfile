@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'figaro'
 gem "binding_of_caller"
+gem "httparty"
 
 
 
