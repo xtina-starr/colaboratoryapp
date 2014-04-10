@@ -1,17 +1,26 @@
 <h1>Hi <%= @user.username %>, </h1>
 
 <h2> Pull your content </h2>
-<% if current_user.providers.find_by(provider_type: "soundcloud") %>
+<% if @tracks %>
   <% @tracks.each do |track| %>
     <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/<%= track["id"] %>" width="500" height="150" scrolling="no" frameborder="no"></iframe>
     <%= track["id"] %>
   <% end %>
 <% end %>
 
-<% if current_user.providers.find_by(provider_type: "vimeo") %>
+<% if @videos %>
   <% @videos["videos"]["video"].each do |v| %>
     <iframe src="//player.vimeo.com/video/<%= v["id"] %>
   " width="500" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  <% end %>
+<% end %>
+
+<% if @youtubes %>
+  <% @youtubes.each do |video| %>
+    <iframe id="ytplayer" type="text/html" width="640" height="390"
+  src="http://www.youtube.com/embed/<%= video %>"
+  frameborder="0"></iframe>
+  <%= video %>
   <% end %>
 <% end %>
 

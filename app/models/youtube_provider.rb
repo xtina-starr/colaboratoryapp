@@ -6,18 +6,18 @@ class YoutubeProvider
 
   def get_channels_for_user(user_token)
     channel = HTTParty.get("https://www.googleapis.com/youtube/v3/channels?part=id&mine=true&access_token=#{user_token}")
-    @playlist_id = channel['items'].first['id']
+    channel['items'].first['id']
   end
 
   # get upload playlist from channel
-  def get_uploads_playlist(channel_id)
-    playlists = HTTParty.get("https://www.googleapis.com/youtube/v3/channels?part=id%2C+contentDetails&id=#{@channel_id}&key=@key")
-    @playlist_id = playlists['items'].first['contentDetails']['relatedPlaylists']['uploads']
+  def get_uploads_playlist_items(playlist_id)
+    playlists = HTTParty.get("https://www.googleapis.com/youtube/v3/channels?part=id%2C+contentDetails&id=#{playlist_id}&key=#{@key}")
+    @playlist_items = playlists['items'].first['contentDetails']['relatedPlaylists']['uploads']
   end
 
   # fetch videos from a playlist
-  def get_playlist_items(playlist_id)
-    playlist = HTTParty.get("https://www.googleapis.com/youtube/v3/playlistItems?part=id%2CcontentDetails&playlistId=#{channel_id}&key=@key")
+  def get_playlist_items(playlist_items)
+    playlist = HTTParty.get("https://www.googleapis.com/youtube/v3/playlistItems?part=id%2CcontentDetails&playlistId=#{playlist_items}&key=#{@key}")
 
     video_ids = []
     playlist['items'].each do |item|
@@ -28,10 +28,10 @@ class YoutubeProvider
   end
 
   def get_videos_for(user_token)
-    channel_id = get_channels_for_user(user_token)
-    playlist_id = get_uploads_playlist(channel_id)
+    playlist_id = get_channels_for_user(user_token)
+    playlist_items = get_uploads_playlist_items(playlist_id)
 
-    get_playlist_items(playlist_id)
+    get_playlist_items(playlist_items)
   end
 
   def self.get_client
@@ -39,8 +39,3 @@ class YoutubeProvider
   end
 
 end
-
-
-youtube_client = YoutubeProvider.new
-
-youtube_client.get_channels_for_user(123456..)
