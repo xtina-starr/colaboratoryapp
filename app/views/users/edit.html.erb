@@ -1,0 +1,112 @@
+<% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |msg| %>
+    <%= msg %>
+  <% end %>
+<% end %>
+
+<h1>Complete your profile</h1>
+
+<%= form_tag(@user, method: "put") do |f| %>
+  <div>
+    <%= label_tag :name, "Name:" %>
+    <%= text_field_tag :name %>
+  </div>
+
+  <div>
+    <%= label_tag :username, "Username:" %>
+    <%= text_field_tag :username %>
+  </div>
+
+  <div>
+    <%= label_tag :email, "Email:" %>
+    <%= text_field_tag :email %>
+  </div>
+
+  <div>
+    <%= label_tag :location, "Location:" %>
+    <%= text_field_tag :location %>
+  </div>
+
+  <div>
+    <%= label_tag :website, "Website:" %>
+    <%= text_field_tag :website %>
+  </div>
+
+  <div>
+    <%= label_tag :bio, "Bio:" %>
+    <%= text_area_tag :bio %>
+  </div>
+
+  <div>
+    <p>So you're a creator, tell us more. Check the following that apply</p>
+    <div>
+      <%= label_tag :dj %>
+      <%= check_box_tag :dj, true %>
+    </div>
+
+    <div>
+      <%= label_tag :producer %>
+      <%= check_box_tag :producer, true %>
+    </div>
+
+    <div>
+      <%= label_tag :rapper %>
+      <%= check_box_tag :rapper, true %>
+    </div>
+
+    <div>
+      <%= label_tag :rapper %>
+      <%= check_box_tag :rapper, true %>
+    </div>
+
+    <div>
+      <%= label_tag :singer %>
+      <%= check_box_tag :singer, true %>
+    </div>
+
+    <div>
+      <%= label_tag :songwriter %>
+      <%= check_box_tag :songwriter, true %>
+    </div>
+
+    <div>
+      <%= label_tag :musician %>
+      <%= check_box_tag :musician, true %>
+    </div>
+
+    <div>
+      <%= label_tag :animator %>
+      <%= check_box_tag :animator, true %>
+    </div>
+
+    <div>
+      <%= label_tag :filmmaker %>
+      <%= check_box_tag :filmmaker, true %>
+    </div>
+
+    <div>
+      <%= label_tag :videographer %>
+      <%= check_box_tag :videographer, true %>
+    </div>
+
+    <div>
+      <%= label_tag :editor %>
+      <%= check_box_tag :editor, true %>
+    </div>
+  </div>
+
+<!--   <div class="field">
+    <%#= label_tag :user_name %>
+    <%#= text_field_tag :user_name %>
+  </div>
+  <div class="field">
+    <%#= label_tag :password %>
+    <%#= password_field_tag :password %>
+  </div>
+  <div class="field">
+    <%#= label_tag :password_confirmation %>
+    <%#= password_field :password_confirmation %>
+  </div> -->
+  <div class="actions"><%= submit_tag "submit" %></div>
+  Submit should redirect to a page that lets user link other providers.
+<% end %>
