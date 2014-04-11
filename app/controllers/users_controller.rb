@@ -17,12 +17,41 @@ class UsersController < ApplicationController
       @tracks = @client.get('/me/tracks')
     end
 
-    if user_token = @user.providers.where(provider_type: "google_oauth2").first.token
+    if @user.providers.where(provider_type: "google_oauth2").first
+
+      user_token = @user.providers.where(provider_type: "google_oauth2").first.token
 
       @youtubes = YoutubeProvider.new.get_videos_for(user_token)
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def update
+    @user = User.find(params[:id])
+
+    if @user.update(
+      name: params[:name],
+      username: params[:username],
+      email: params[:email],
+      location: params[:location],
+      website: params[:website],
+      bio: params[:bio],
+      dj: params[:dj],
+      producer: params[:producer],
+      rapper: params[:rapper],
+      singer: params[:singer],
+      musician: params[:musician],
+      animator: params[:animator],
+      filmmaker: params[:filmmaker],
+      videographer: params[:videographer],
+      animator: params[:editor])
+
+      redirect_to user_path(@user.id), notice: 'User was successfully updated.'
+    else
+      render action: 'edit'
+    end
   end
 end
