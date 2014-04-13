@@ -1,34 +1,38 @@
 module ApplicationHelper
+
   def roles(user)
+    r = []
     if user.dj
-      "DJ"
+      r.push "DJ"
     end
     if user.producer
-      "producer"
+      r.push "Producer"
     end
     if user.rapper
-      "rapper"
+      r.push "Rapper"
     end
     if user.singer
-      "singer"
+      r.push "Singer"
     end
     if user.songwriter
-      "songwriter"
+      r.push "Songwriter"
     end
     if user.musician
-      "musician"
+      r.push "Musician"
     end
     if user.animator
-      "animator"
+      r.push "Animator"
     end
     if user.filmmaker
-      "filmmaker"
+      r.push "Filmmaker"
     end
     if user.videographer
-      "videographer"
+      r.push "Videographer"
     end
     if user.editor
-      "editor"
+      r.push "Editor"
     end
+    r
   end
+
 end
