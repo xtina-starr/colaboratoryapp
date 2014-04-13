@@ -17,6 +17,7 @@ class YoutubeProvider
     provider.token = refreshhash['access_token']
     provider.expiresat = DateTime.now + refreshhash["expires_in"].to_i.seconds
     provider.save!
+    provider.token
 
   end
 
@@ -35,7 +36,7 @@ class YoutubeProvider
   def get_channels_for_user(user_token)
     # user = Provider.find_by(token: user_token)
     if token_expired?(Provider.find_by(token: user_token))
-      refresh_token(Provider.find_by(token: user_token))
+      user_token = refresh_token(Provider.find_by(token: user_token))
     end
 
     channel = HTTParty.get("https://www.googleapis.com/youtube/v3/channels?part=id&mine=true&access_token=#{user_token}&key=#{@key}")
