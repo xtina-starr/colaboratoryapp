@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 20140403172916) do
 
   create_table "contents", force: true do |t|
     t.integer  "user_id"
-    t.string   "type"
-    t.boolean  "collab",     default: false
-    t.boolean  "feedback",   default: false
-    t.boolean  "latest",     default: false
+    t.integer  "provider_id"
+    t.boolean  "collab",      default: false
+    t.boolean  "feedback",    default: false
+    t.boolean  "latest",      default: false
     t.integer  "media_id"
     t.string   "title"
     t.string   "media_type"

@@ -1,5 +1,6 @@
 class Provider < ActiveRecord::Base
   belongs_to :user
+  has_many :contents
 
   def self.find_or_create_with_omniauth(auth_hash)
     provider = Provider.find_by(user_id: user_id, provider_type: auth_hash['provider']) || create_with_omniauth(auth_hash, user_id) 
