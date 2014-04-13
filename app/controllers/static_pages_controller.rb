@@ -7,4 +7,7 @@ class StaticPagesController < ApplicationController
 
   def learn_more
   end
+
+  def signup
+  end
 end

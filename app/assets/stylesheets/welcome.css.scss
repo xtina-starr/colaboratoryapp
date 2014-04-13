@@ -91,16 +91,20 @@ button {
   @include button(simple, $base-body-color);
   @include linear-gradient(to top, #A8A8A8, #E8E8E8 );
 
-  height: 3em;
   display: inline-block;
   width: 100%;
   margin-bottom: .3em;
   outline: none;
   font-size: 1em;
+  text-decoration: none;
 
   @include media($large-screen) {
     width: auto;
     margin-bottom: 0;
     margin-left: 8em;
   }
+}
+
+a:hover {
+  text-decoration: none;
 }

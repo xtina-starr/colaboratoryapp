@@ -1,0 +1,57 @@
+
+<div class="image-gradient">
+  <div class="copy">
+    <p class="signup">SIGN UP</p>
+  </div>
+  <div class="overlay"></div>
+</div>
+
+<div class="button-group">
+  <p> Choose a service: </p>
+  <%= link_to(image_tag("Sound Cloud.png", :alt => "soundcloud sign in icon", :title => "Soundcloud"), "/auth/soundcloud") %>
+  <%= link_to(image_tag("Vimeo.png", :alt => "vimeo sign in icon", :title => "Vimeo"), "/auth/vimeo") %>
+  <%= link_to(image_tag("Youtube New.png", :alt => "youtube sign in icon", :title => "Youtube"), "/auth/google_oauth2") %>
+  <!-- <button>SoundCloud<%#= image_tag("Sound Cloud.png", "/auth/soundcloud", :alt => "soundcloud sign in icon") %></button> -->
+  <!-- <button>Vimeo <%#= image_tag("Vimeo.png", :alt => "vimeo sign in icon") %></button> -->
+  <!-- <button>Youtube <%#= image_tag("Youtube New.png", :alt => "youtube sign in icon") %></button> -->
+</div>
+
+<!-- footer -->
+
+<footer class="footer-2">
+  <div class="footer-logo">
+    <img src="https://raw.github.com/Magnus-G/Random/master/placeholder_logo_1.png" alt="">
+  </div>
+    <ul>
+      <li><a href="javascript:void(0)">About</a></li>
+      <li><a href="javascript:void(0)">Help</a></li>
+      <li><a href="javascript:void(0)">Learn More</a></li>
+    </ul>
+
+    <div class="footer-secondary-links">
+      <ul>
+        <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+        <li><a href="javascript:void(0)">Privacy Policy</a></li>
+      </ul>
+
+      <ul class="footer-social">
+        <li><a href="javascript:void(0)">
+          <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/facebook-logo-circle.png" alt="">
+          </a></li>
+        <li><a href="javascript:void(0)">
+          <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/twitter-logo-circle.png" alt="">
+        </a></li>
+        <li><a href="javascript:void(0)">
+          <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png" alt="">
+        </a></li>
+      </ul>
+    </div>
+</footer>
+
+
+
+
+<%#= link_to("Soundcloud", "/auth/soundcloud", title: "Soundcloud") %>
+<%#= link_to("Vimeo", "/auth/vimeo", title: "Vimeo") %>
+<%#= link_to("Youtube", "/auth/google_oauth2", title: "Youtube") %>
+<%#= link_to("Signout", sign_out_path) %>
