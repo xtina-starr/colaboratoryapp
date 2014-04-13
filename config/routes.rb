@@ -15,4 +15,5 @@ Colaboratory::Application.routes.draw do
 
   # resources :contents
   resources :users
+  resources :contents
 end

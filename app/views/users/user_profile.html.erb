@@ -12,27 +12,23 @@ They can link other accounts and choose which content will be displayed.
 </div>
 
 <h2> <%= @user.username %>'s content: </h2>
-<% if @tracks %>
-  <% @tracks.each do |track| %>
-    <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/<%= track["id"] %>" width="500" height="150" scrolling="no" frameborder="no"></iframe>
-    <%= track["id"] %>
-  <% end %>
-<% end %>
 
-<% if @videos %>
-  <% @videos["videos"]["video"].each do |v| %>
-    <iframe src="//player.vimeo.com/video/<%= v["id"] %>
-  " width="500" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-  <% end %>
-<% end %>
+<% item_counter = 0 %>
 
-<% if @youtubes %>
-  <% @youtubes.each do |video| %>
-    <iframe id="ytplayer" type="text/html" width="640" height="390"
-  src="http://www.youtube.com/embed/<%= video %>"
-  frameborder="0"></iframe>
-  <%= video %>
-  <% end %>
+<%= form_tag(contents_path, method: "post") do %>
+    <% @tracks.each do |track| %>
+      <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/<%= track["id"] %>" width="500" height="150" scrolling="no" frameborder="no"></iframe>
+      <% track.inspect%>
+      <%= check_box_tag 'content', true %>
+      <%= label_tag :title, "Title:" %><%#= track[:title] %>
+      <%= hidden_field_tag "['content_items'][#{item_counter}]['title']", track["title"] %>
+      <%= hidden_field_tag "['content_items'][#{item_counter}]['media_id']", track["id"] %>
+      <%= hidden_field_tag "['content_items'][#{item_counter}]['user_id']", @user.id %>
+      <%= hidden_field_tag "['content_items'][#{item_counter}]['provider_id']", @user.providers.find_by(provider_type: "soundcloud").id %>
+      
+      <% item_counter += 1 %>
+    <% end %>
+  <div class="actions"><%= submit_tag "submit" %></div>
 <% end %>
 
 <h2>Link another service</h2>
