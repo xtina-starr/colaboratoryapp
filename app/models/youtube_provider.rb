@@ -4,24 +4,24 @@ class YoutubeProvider
     @key = ENV['GOOGLE_API_KEYS']
   end
 
-  def refresh_token_if_expired(provider)
-        if token_expired?(provider)
-            user_token = Provider.find_by(token: user_token)
-            # response = RestClient.post "#{ENV['DOMAIN']}oauth2/token", :grant_type => 'refresh_token', :refresh_token => self.refresh_token, :client_id => ENV['APP_ID'], :client_secret => ENV['APP_SECRET'] 
-            response = HTTParty.get("https://www.googleapis.com/youtube/v3/channels?part=id&mine=true&access_token=#{user_token}&key=#{@key}")
-            # ('https://accounts.google.com/o/oauth2/auth', :grant_type => 'refresh_token', :refresh_token => provider.token, :client_id => ENV['GOOGLE_CLIENT_ID'], :client_secret => ENV['GOOGLE_SECRET'])
-            refreshhash = JSON.parse(response.body)
-        
-            self.token = refreshhash['access_token']
-            self.expiresat = DateTime.now + refreshhash["expires_in"].to_i.seconds
-            self.save
+  def refresh_token(provider)
 
-        end
+    response = HTTParty.post('https://accounts.google.com/o/oauth2/token', 
+      :body => { 
+        :grant_type => 'refresh_token', 
+        :refresh_token => provider.refresh_token, 
+        :client_id => ENV['GOOGLE_CLIENT_ID'], 
+        :client_secret => ENV['GOOGLE_SECRET']}
+    )
+    refreshhash = JSON.parse(response.body)
+    provider.token = refreshhash['access_token']
+    provider.expiresat = DateTime.now + refreshhash["expires_in"].to_i.seconds
+    provider.save!
 
   end
 
   def token_expired?(provider)
-      if provider.expiresat
+      if provider.expiresat 
         expiry = Time.at(provider.expiresat)
       else
         expiry = Time.now + 2.hours
@@ -34,7 +34,9 @@ class YoutubeProvider
 
   def get_channels_for_user(user_token)
     # user = Provider.find_by(token: user_token)
-    #refresh_token_if_expired(Provider.find_by(token: user_token))
+    if token_expired?(Provider.find_by(token: user_token))
+      refresh_token(Provider.find_by(token: user_token))
+    end
 
     channel = HTTParty.get("https://www.googleapis.com/youtube/v3/channels?part=id&mine=true&access_token=#{user_token}&key=#{@key}")
     channel['items'].first['id']
