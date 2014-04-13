@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
         @user = User.create_with_omniauth(auth_hash)
         session[:user_id] = @user.id
         provider = Provider.create_with_omniauth(auth_hash, @user.id)
-        redirect_to user_path(@user.id), notice: "You have successfully been signed in!"
+        redirect_to edit_user_path(@user.id), notice: "You have successfully been signed in!"
       else
         redirect_to root_path, notice: "There was a problem signing in!"
       end
