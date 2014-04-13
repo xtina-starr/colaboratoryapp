@@ -13,15 +13,19 @@ gem 'figaro'
 gem "binding_of_caller"
 gem "httparty"
 
+# frontend
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+gem 'refills', git:'git@github.com:thoughtbot/refills.git'
 
-
-#authentication
+# authentication
 gem 'omniauth'
 gem 'omniauth-vimeo'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-soundcloud'
 
-#API wrapper
+# API wrapper
 gem 'vimeo'
 gem 'youtube_it'
 gem 'soundcloud'
