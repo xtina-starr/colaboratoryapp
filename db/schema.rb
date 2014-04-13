@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20140403172916) do
     t.string   "uid"
     t.string   "provider_type"
     t.string   "token"
+    t.string   "refresh_token"
+    t.datetime "expiresat"
     t.string   "secret"
     t.string   "avatar"
     t.string   "username"

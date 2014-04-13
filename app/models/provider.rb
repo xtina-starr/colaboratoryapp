@@ -12,10 +12,11 @@ class Provider < ActiveRecord::Base
       username: auth_hash['info']['nickname'],
       avatar: auth_hash['info']['image'],
       token: auth_hash['credentials']['token'],
+      refresh_token: auth_hash['credentials']['refresh_token'],
       secret: auth_hash['credentials']['secret'],
       email: auth_hash['info']['email'],
-      provider_type: auth_hash['provider']
+      provider_type: auth_hash['provider'],
+      expiresat: DateTime.now + auth_hash['credentials']["expires_in"].to_i.seconds
       )
-
   end
 end

@@ -6,7 +6,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     #   # :name => "google",
       :provider_ignores_state => true,
       :scope => "userinfo.email, userinfo.profile, plus.me, http://gdata.youtube.com",
-      :prompt => "select_account",
+      :prompt => "consent",
       :image_aspect_ratio => "square",
       :image_size => 50
     }
