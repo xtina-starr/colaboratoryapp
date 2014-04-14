@@ -45,7 +45,7 @@ class UsersController < ApplicationController
 
       user_token = @user.providers.where(provider_type: "google_oauth2").first.token
 
-      @youtubes = YoutubeProvider.new.get_videos_for(user_token)
+      # @youtubes = YoutubeProvider.new.get_videos_for(user_token)
     end
   end
 
