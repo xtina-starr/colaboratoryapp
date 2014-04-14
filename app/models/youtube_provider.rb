@@ -51,14 +51,16 @@ class YoutubeProvider
 
   # fetch videos from a playlist
   def get_playlist_items(playlist_items)
-    playlist = HTTParty.get("https://www.googleapis.com/youtube/v3/playlistItems?part=id%2CcontentDetails&playlistId=#{playlist_items}&key=#{@key}")
+    playlist = HTTParty.get("https://www.googleapis.com/youtube/v3/playlistItems?part=id%2Csnippet%2CcontentDetails&playlistId=#{playlist_items}&key=#{@key}")
 
-    video_ids = []
+    video_hash = []
     playlist['items'].each do |item|
-      video_ids << item["contentDetails"]["videoId"]
+
+      video_hash << { "title" => item["snippet"]["title"],
+      "video_id" => item["contentDetails"]["videoId"] }
     end
 
-    @youtubes = video_ids
+    video_hash
   end
 
   def get_videos_for(user_token)
