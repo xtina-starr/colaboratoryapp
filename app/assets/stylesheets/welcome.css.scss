@@ -27,9 +27,10 @@ body.welcome {
 
 .container {
   @include outer-container;
-  @include span-columns(6);
-  @include shift(3);
+  @include span-columns(9);
+  @include shift(2.5);
   width: 100%;
+  position: fixed;
 }
 
 .content-pri {
@@ -46,13 +47,13 @@ body.welcome {
   font-size: 3.5em;
   color: white;
   @include media($mobile) {
-    font-size: 3em;
+    font-size: 2em;
   }
   @include media($medium-screen) {
-    font-size: 4em;
+    font-size: 3.5em;
   }
   @include media($large-screen) {
-    font-size: 6em;
+    font-size: 4.5em;
   }
 }
 
@@ -61,18 +62,18 @@ body.welcome {
 
   color: white;
   @include media($mobile) {
-    font-size: 3em;
+    font-size: 2em;
   }
   @include media($medium-screen) {
-    font-size: 4em;
+    font-size: 3.5em;
   }
   @include media($large-screen) {
-    font-size: 6em;
+    font-size: 4.5em;
   }
 }
 
 .large-space {
-  padding: 12em 0 12em 0;
+  padding: 4em 0 4em 0;
   position: relative;
   width: 100%;
   display: table;
@@ -89,7 +90,7 @@ body.welcome {
 
 button {
   @include button(simple, $base-body-color);
-  @include linear-gradient(to top, #A8A8A8, #E8E8E8 );
+  @include linear-gradient(to top, #A8A8A8, #FFFFFF  );
 
   display: inline-block;
   width: 100%;
@@ -101,7 +102,7 @@ button {
   @include media($large-screen) {
     width: auto;
     margin-bottom: 0;
-    margin-left: 8em;
+    margin-left: 6em;
   }
 }
 
