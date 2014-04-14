@@ -1,13 +1,20 @@
 class ContentsController < ApplicationController
 
   def create
-    params["'content_items'"].each do |content|
-      content = Content.create(
-        title: content["'title'"],
-        media_id: content["'media_id'"],
-        user_id: content["'user_id'"],
-        provider_id: content["'provider_id'"]
-      )
+
+    params["content_items"].each do |index, content|
+      if content["content"] == "true"
+        content.delete(:content)
+        Content.create(content
+          # title: content['title'],
+          # media_id: content['media_id'].to_i,
+          # user_id: content['user_id'].to_i,
+          # provider_id: content['provider_id'].to_i
+        )
+      end
+      # if content.save
+      #   raise
+      # end
     end
   end
 
