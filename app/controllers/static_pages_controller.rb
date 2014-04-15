@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  def help
+  def faq
   end
 
   def about_us
@@ -9,5 +9,8 @@ class StaticPagesController < ApplicationController
   end
 
   def signup
+  end
+
+  def signin
   end
 end

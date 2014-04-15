@@ -4,9 +4,10 @@
   <% end %>
 <% end %>
 
-<fieldset>
-<h1>Complete your profile</h1>
+<div class="container_profile">
 
+  <h1 class="profile">Complete your profile</h1>
+<fieldset>
 <%= form_tag(@user, method: "put") do |f| %>
   <div>
     <%= label_tag :name, "Name:" %>
@@ -110,3 +111,4 @@
   <div class="actions"><%= submit_tag "submit" %></div>
   Submit should redirect to a page that lets user link other providers.
 <% end %>
+</div>

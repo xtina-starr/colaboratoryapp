@@ -1,9 +1,10 @@
 Colaboratory::Application.routes.draw do
 
-  get "/help",       to: "static_pages#help",       as: :help
-  get "/about",      to: "static_pages#about_us",   as: :about
+  get "/faq",        to: "static_pages#faq",        as: :faq
+  get "/about",      to: "static_pages#about",      as: :about
   get "/learn_more", to: "static_pages#learn_more", as: :learn_more
   get "/signup",     to: "static_pages#signup",     as: :signup
+  get "/signin",     to: "static_pages#signin",     as: :signin
   root 'welcome#index'
   get "users/index"
   get "users/show"

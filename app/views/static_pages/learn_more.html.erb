@@ -76,10 +76,10 @@
     </a>
 
    <!--  item 4 -->
-    <a href="javascript:void(0)" class="grid-item">
+    <a href="/faq" class="grid-item">
       <%= image_tag("view-details-64.png") %>
       <h1>FAQ</h1>
-      <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+      <p>Check out our FAQ's</p>
     </a>
 
     <!-- item 5 -->
@@ -104,46 +104,33 @@
         </div>
     </a>
     <!-- item 6 -->
-    <a href="javascript:void(0)" class="grid-item">
+    <a href="javascript:void(0)" class="grid-item btn js-btn">
       <%= image_tag("column-view-64.png") %>
       <h1>Showcase</h1>
-      <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+      <p>Present your works</p>
+      <div class="modal">
+          <label for="modal-5">
+            <div class="btn js-btn">See More</div>
+          </label>
+          <input class="modal-state" id="modal-5" type="checkbox" />
+            <div class="modal-window">
+              <div class="modal-inner">
+                <label class="modal-close" for="modal-5"></label>
+                <h1>Modal Title</h1>
+                <p class="intro">Intro text lorem ipsum dolor sit ametm, quas, eaque facilis aliquid cupiditate tempora cumque ipsum accusantium illo modi commodi  minima.</p>
+                <p class="body">etur adipisicing elit. Itaque, placeat, explicabo, veniam quos aperiam molestias eriam molestias molestiae suscipit ipsum enim quasi sit possimus quod atque nobis voluptas earum odit accusamus quibusdam.</p>
+              </div>
+            </div>
+          </input>
+        </div>
     </a>
-    <a href="javascript:void(0)" class="grid-item">
+    <a href="/signup" class="grid-item">
       <%= image_tag("start-64.png") %>
       <h1>Start Now</h1>
-      <p>Lorem ipsum dolor sit amet, elit. Rem, illum.</p>
+      <p>Ready, set, let's go!</p>
     </a>
   </div>
 
   <!-- footer -->
-  <footer class="footer-2">
-    <div class="footer-logo">
-      <img src="https://raw.github.com/Magnus-G/Random/master/placeholder_logo_1.png" alt="">
-    </div>
-      <ul>
-        <li><a href="javascript:void(0)">About</a></li>
-        <li><a href="javascript:void(0)">Help</a></li>
-        <li><a href="javascript:void(0)">Learn More</a></li>
-      </ul>
-
-      <div class="footer-secondary-links">
-        <ul>
-          <li><a href="javascript:void(0)">Terms and Conditions</a></li>
-          <li><a href="javascript:void(0)">Privacy Policy</a></li>
-        </ul>
-
-        <ul class="footer-social">
-          <li><a href="javascript:void(0)">
-            <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/facebook-logo-circle.png" alt="">
-            </a></li>
-          <li><a href="javascript:void(0)">
-            <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/twitter-logo-circle.png" alt="">
-          </a></li>
-          <li><a href="javascript:void(0)">
-            <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png" alt="">
-          </a></li>
-        </ul>
-      </div>
-  </footer>
+<%= render "footer" %>
 </body>

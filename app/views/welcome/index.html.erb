@@ -1,5 +1,6 @@
 <body class="welcome">
   <div class="large-space">
+<!--     <%#= link_to('Signin', signin_path, :class => 'button')  %> -->
   </div>
   <div class="container">
     <div class="content-pri">
@@ -10,8 +11,21 @@
   <div class="container">
     <div class="content-pri">
       <div class="small-space">
-        <button><%= link_to('Signup', signup_path, :class => 'button')  %></button>
-        <button><%= link_to('Learn More', learn_more_path, :class => 'button')  %></button>
+        <button type="button" class="js-menu-trigger sliding-menu-button">
+          Sign In | Sign Up | Learn More
+        </button>
+
+        <nav class="js-menu sliding-menu-content">
+          <ul>
+            <li><a href="/signin">Sign In</a></li>
+            <li><a href="/signup">Sign Up</a></li>
+            <li><a href="/learn_more">Learn More</a></li>
+          </ul>
+        </nav>
+
+        <div class="js-menu-screen menu-screen"></div>
+          <!-- <button><%#= link_to('Signup', signup_path, :class => 'button')  %></button>
+          <button><%#= link_to('Learn More', learn_more_path, :class => 'button')  %></button> -->
       </div>
     <div class="content-sec"></div>
   </div>
@@ -29,6 +43,26 @@
 </div>
 
 
+<!-- sliding model js-->
+
+
+
+<script>
+  $(document).ready(function(){
+
+    $('.js-menu-trigger').on('click touchstart', function(e){
+      $('.js-menu').toggleClass('is-visible');
+      $('.js-menu-screen').toggleClass('is-visible');
+      e.preventDefault();
+    });
+
+    $('.js-menu-screen').on('click touchstart', function(e){
+      $('.js-menu').toggleClass('is-visible');
+      $('.js-menu-screen').toggleClass('is-visible');
+      e.preventDefault();
+    });
+  });
+</script>
 
 
 
