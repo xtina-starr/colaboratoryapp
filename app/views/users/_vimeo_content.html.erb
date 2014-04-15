@@ -1,0 +1,22 @@
+<p><%= content.title %></p>
+
+<div>
+<% if content.collab %>
+  <%= "Looking to collaborate." %>
+<% end %>
+</div>
+
+<div>
+<% if content.feedback %>
+  <%= "Seeking feedback on this project." %>
+<% end %>
+</div>
+
+<div>
+<% if content.latest %>
+  <%= "My latest project." %>
+<% end %>
+</div>
+
+<iframe src="//player.vimeo.com/video/<%= content.media_id %>
+  " width="500" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
