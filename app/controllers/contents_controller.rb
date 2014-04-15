@@ -12,10 +12,8 @@ class ContentsController < ApplicationController
           # provider_id: content['provider_id'].to_i
         )
       end
-      # if content.save
-      #   raise
-      # end
     end
+    redirect_to user_path(current_user)
   end
 
 end
