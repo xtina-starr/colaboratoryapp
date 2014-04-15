@@ -320,8 +320,8 @@ body.learnmore {
   }
 
   .btn {
-    @include button(simple, $base-body-color);
-    font-size: $base-font-size;
+    @include button(shiny, $base-body-color);
+    font-size: 12px;
     margin-bottom: $base-line-height;
   }
 
@@ -398,7 +398,7 @@ body.learnmore {
     h1 {
       color: $base-font-color;
       margin-bottom: .6em;
-      text-align: left;
+      text-align: center;
       text-transform: capitalize;
     }
 
