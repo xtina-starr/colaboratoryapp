@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   end
 
   def user_profile
+    # should only be available to current_user
+
     @user = User.find(params[:id])
 
     if @user.providers.where(provider_type: "vimeo").first
@@ -32,6 +34,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    # should only be available to current_user
     @user = User.find(params[:id])
   end
 
