@@ -1,4 +1,8 @@
 class ContentsController < ApplicationController
+  
+  def index
+    @all_content = Content.order(created_at: :desc)
+  end
 
   def create
 
