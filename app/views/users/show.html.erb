@@ -1,6 +1,14 @@
-<h1>Hi <%= @user.username %>, </h1>
 
-<h2> Pull your content </h2>
+<h1><%= @user.username %> </h1>
+<%= @user.location %> | <%= @user.website %><br>
+<h4><%= roles(@user).join("/") %><h4><br>
+
+<%= @user.bio %>
+
+<div>
+</div>
+
+<h2> <%= @user.username %>'s content: </h2>
 <% if @tracks %>
   <% @tracks.each do |track| %>
     <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/<%= track["id"] %>" width="500" height="150" scrolling="no" frameborder="no"></iframe>
@@ -24,6 +32,6 @@
   <% end %>
 <% end %>
 
-<h2>Link another service</h2>
-<%= link_to("Vimeo", "/auth/vimeo") %>
+<!-- <h2>Link another service</h2> -->
+<%#= link_to("Vimeo", "/auth/vimeo") %>
 

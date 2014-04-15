@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 20140403172916) do
 
   create_table "contents", force: true do |t|
     t.integer  "user_id"
-    t.string   "type"
-    t.boolean  "collab",     default: false
-    t.boolean  "feedback",   default: false
-    t.boolean  "latest",     default: false
+    t.integer  "provider_id"
+    t.boolean  "collab",      default: false
+    t.boolean  "feedback",    default: false
+    t.boolean  "latest",      default: false
     t.integer  "media_id"
     t.string   "title"
     t.string   "media_type"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20140403172916) do
     t.string   "uid"
     t.string   "provider_type"
     t.string   "token"
+    t.string   "refresh_token"
+    t.datetime "expiresat"
     t.string   "secret"
     t.string   "avatar"
     t.string   "username"
@@ -46,6 +48,19 @@ ActiveRecord::Schema.define(version: 20140403172916) do
     t.string   "name"
     t.string   "username"
     t.string   "email"
+    t.string   "location"
+    t.string   "website"
+    t.string   "bio"
+    t.boolean  "dj",           default: false
+    t.boolean  "producer",     default: false
+    t.boolean  "rapper",       default: false
+    t.boolean  "singer",       default: false
+    t.boolean  "songwriter",   default: false
+    t.boolean  "musician",     default: false
+    t.boolean  "animator",     default: false
+    t.boolean  "filmmaker",    default: false
+    t.boolean  "videographer", default: false
+    t.boolean  "editor",       default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

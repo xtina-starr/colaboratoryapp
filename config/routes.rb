@@ -8,6 +8,7 @@ Colaboratory::Application.routes.draw do
   get "users/index"
   get "users/show"
   get "users/update"
+  get "profile/:id", to: "users#user_profile", as: :user_profile
 
   # get "/auth/:provider",          to: "sessions#create"
   get "/auth/:provider/callback", to: "sessions#create"
@@ -17,4 +18,5 @@ Colaboratory::Application.routes.draw do
 
   # resources :contents
   resources :users
+  resources :contents
 end
