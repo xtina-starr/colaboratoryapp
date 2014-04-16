@@ -1,19 +1,19 @@
-<h1>Hi <%= @user.username %>, </h1>
 
-<h2> Pull your content </h2>
-<% if current_user.providers.find_by(provider_type: "soundcloud") %>
-  <% @tracks.each do |track| %>
-    <%= track["permalink_url"] %>
+<h1><%= @user.username %> </h1>
+<%= @user.location %> | <%= @user.website %><br>
+<h4><%= roles(@user).join("/") %><h4><br>
+
+<%= @user.bio %>
+
+<div>
+</div>
+
+<h2> <%= @user.username %>'s content: </h2>
+
+  <% @contents.each do |content| %>
+    <%= render "#{content.provider.provider_type}_content", content: content %>
   <% end %>
-<% end %>
 
-<% if current_user.providers.find_by(provider_type: "vimeo") %>
-  <% @videos["videos"]["video"].each do |v| %>
-    <iframe src="//player.vimeo.com/video/<%= v["id"] %>
-  " width="500" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-  <% end %>
-<% end %>
-
-<h2>Link another service</h2>
-<%= link_to("Vimeo", "/auth/vimeo") %>
+<!-- <h2>Link another service</h2> -->
+<%#= link_to("Vimeo", "/auth/vimeo") %>
 

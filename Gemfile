@@ -11,7 +11,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'figaro'
 gem "binding_of_caller"
-
+gem "httparty"
+gem 'therubyracer', platforms: :ruby
 
 
 #authentication
@@ -27,6 +28,10 @@ gem 'soundcloud'
 
 group :development do
   gem "better_errors"
+  gem 'capistrano'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
 end
 
 group :development, :test do
