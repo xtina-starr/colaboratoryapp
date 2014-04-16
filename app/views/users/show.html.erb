@@ -1,0 +1,19 @@
+
+<h1><%= @user.username %> </h1>
+<%= @user.location %> | <%= @user.website %><br>
+<h4><%= roles(@user).join("/") %><h4><br>
+
+<%= @user.bio %>
+
+<div>
+</div>
+
+<h2> <%= @user.username %>'s content: </h2>
+
+  <% @contents.each do |content| %>
+    <%= render "#{content.provider.provider_type}_content", content: content %>
+  <% end %>
+
+<!-- <h2>Link another service</h2> -->
+<%#= link_to("Vimeo", "/auth/vimeo") %>
+
