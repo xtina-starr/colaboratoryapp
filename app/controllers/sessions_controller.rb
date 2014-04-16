@@ -16,13 +16,11 @@ class SessionsController < ApplicationController
       if @provider
         session[:user_id] = @provider.user.id
         redirect_to user_path(user.id), notice: "You have successfully been signed in!"
-      elsif
+      else
         @user = User.create_with_omniauth(auth_hash)
         session[:user_id] = @user.id
         provider = Provider.create_with_omniauth(auth_hash, @user.id)
         redirect_to edit_user_path(@user.id), notice: "You have successfully been signed in!"
-      else
-        redirect_to root_path, notice: "There was a problem signing in!"
       end
     end
 
@@ -30,7 +28,7 @@ class SessionsController < ApplicationController
 
 
    def signout
-     session[:user] = nil
+     session[:user_id] = nil
      redirect_to "/", notice: "You have been successfully signed out."
    end
 
