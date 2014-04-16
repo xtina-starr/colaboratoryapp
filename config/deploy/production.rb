@@ -18,10 +18,12 @@ server 'ec2-54-186-128-149.us-west-2.compute.amazonaws.com',
   user: 'ubuntu', 
   roles: %w{web app}, 
   ssh_options: {
+    user: "ubuntu",
+    verbose: :debug,
     keys: %w(/Users/christinathompson/.ssh/Adies-collabo.pem),
     forward_agent: false,
     auth_methods: %w(publickey)
-    }
+  }
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options

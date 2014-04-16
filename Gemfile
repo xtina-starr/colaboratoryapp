@@ -4,8 +4,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.3'
 gem 'pg'
 gem 'figaro'
-gem 'rails', '4.0.3'
-gem 'pg'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -16,6 +14,7 @@ gem 'binding_of_caller'
 gem "httparty"
 gem 'therubyracer', platforms: :ruby
 
+# gem 'net-ssh', "~>2.7"#, git: 'git@github.com:net-ssh/net-ssh.git'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -35,7 +34,7 @@ gem 'soundcloud'
 
 group :development do
   gem "better_errors"
-  gem 'capistrano'
+  gem 'capistrano', '3.1.0'
   gem 'capistrano-rvm'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
