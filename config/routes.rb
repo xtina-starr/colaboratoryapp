@@ -5,7 +5,7 @@ Colaboratory::Application.routes.draw do
   get "users/show"
   get "users/update"
 
-  get "profile/:id", to: "users#user_profile", as: :user_profile
+  get "profile", to: "users#user_profile", as: :user_profile
 
   # get "/auth/:provider",          to: "sessions#create"
   get "/auth/:provider/callback", to: "sessions#create"
