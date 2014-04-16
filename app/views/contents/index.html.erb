@@ -1,0 +1,5 @@
+Index: future homepage (feed)
+
+<% @all_content.each do |content| %>
+  <%= render "users/#{content.provider.provider_type}_content", content: content %>
+<% end %>
