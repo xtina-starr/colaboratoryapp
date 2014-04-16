@@ -5,8 +5,9 @@ class UsersController < ApplicationController
   def user_profile
     # should only be available to current_user
 
-    @user = User.find(params[:id])
+    @user = current_user
 
+    # if current_user
     if @user.providers.where(provider_type: "vimeo").first
       @clientv = Vimeo::Advanced::Video.new(ENV["VIMEO_KEY"], ENV["VIMEO_SECRET"],
         :token => current_user.providers.find_by(provider_type: "vimeo").token,
@@ -25,6 +26,9 @@ class UsersController < ApplicationController
 
       @youtubes = YoutubeProvider.new.get_videos_for(user_token)
     end
+    # else
+      #redirect_to "/"
+    # end
 
   end
 
@@ -34,7 +38,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    # should only be available to current_user
+
     @user = User.find(params[:id])
   end
 
@@ -58,7 +62,7 @@ class UsersController < ApplicationController
       videographer: params[:videographer],
       animator: params[:editor])
 
-      redirect_to user_profile_path(@user.id), notice: 'User was successfully updated.'
+      redirect_to user_profile_path, notice: 'User was successfully updated.'
     else
       render action: 'edit'
     end
