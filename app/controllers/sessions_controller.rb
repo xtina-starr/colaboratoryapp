@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     else
       if @provider
         session[:user_id] = @provider.user.id
-        redirect_to user_path(user.id), notice: "You have successfully been signed in!"
+        redirect_to user_path(@provider.user.id), notice: "You have successfully been signed in!"
       else
         @user = User.create_with_omniauth(auth_hash)
         session[:user_id] = @user.id
