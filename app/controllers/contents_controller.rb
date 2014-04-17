@@ -28,7 +28,22 @@ class ContentsController < ApplicationController
     search_term = (params[:search])
     uri = URI::encode(search_term)
 
-    @search_results = Content.search_content(uri)
+    @contents = Content.search_content(uri)
+  end
+
+  def collabs
+    @contents = Content.collaboration
+    render :search
+  end
+
+  def feedback
+    @contents = Content.feedback
+    render :search
+  end
+
+  def latest
+    @contents = Content.latest
+    render :search
   end
 
 end

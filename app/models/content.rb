@@ -8,4 +8,16 @@ class Content < ActiveRecord::Base
     Content.includes(:user).where("title LIKE :query OR users.username LIKE :query OR users.bio LIKE :query", query: "%#{search_term}%" )
   end
 
+  def self.collaboration
+    self.where("collab = ?", true)
+  end
+
+  def self.feedback
+    self.where("feedback = ?", true)
+  end
+
+  def self.latest
+    self.where("feedback = ?", true)
+  end
+
 end
