@@ -15,14 +15,12 @@ class SessionsController < ApplicationController
     else
       if @provider
         session[:user_id] = @provider.user.id
-        redirect_to user_path(user.id), notice: "You have successfully been signed in!"
-      elsif
+        redirect_to user_path(@provider.user.id), notice: "You have successfully been signed in!"
+      else
         @user = User.create_with_omniauth(auth_hash)
         session[:user_id] = @user.id
         provider = Provider.create_with_omniauth(auth_hash, @user.id)
         redirect_to edit_user_path(@user.id), notice: "You have successfully been signed in!"
-      else
-        redirect_to root_path, notice: "There was a problem signing in!"
       end
     end
 
@@ -30,15 +28,9 @@ class SessionsController < ApplicationController
 
 
    def signout
-     session[:user] = nil
+     session[:user_id] = nil
      redirect_to "/", notice: "You have been successfully signed out."
    end
-    # Vimeo
-    # video = Vimeo::Advanced::Video.new(ENV["VIMEO_KEY"], ENV["VIMEO_SECRET"], token: auth_hash.extra.access_token.token, secret: auth_hash.extra.access_token.secret)
-    # raise
-
-    # video_embed = Vimeo::Advanced::Video.new(ENV["VIMEO_KEY"], ENV["VIMEO_SECRET"], token: auth_hash.extra.access_token.token, secret: auth_hash.extra.access_token.secret)
-    # video_embed.get_presets({ page: "1", per_page: "10" })
 
 
   def show
