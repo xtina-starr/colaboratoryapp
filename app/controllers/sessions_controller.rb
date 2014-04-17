@@ -6,16 +6,16 @@ class SessionsController < ApplicationController
 
     if current_user
       if @provider
-        redirect_to user_path(current_user.id), notice: "This user already exists!"
+        redirect_to dashboard(current_user.id), notice: "This user already exists!"
       else
         provider = Provider.create_with_omniauth(auth_hash, current_user.id)
 
-        redirect_to user_path(current_user.id), notice: "Account added!"
+        redirect_to dashboard(current_user.id), notice: "Account added!"
       end
     else
       if @provider
         session[:user_id] = @provider.user.id
-        redirect_to user_path(@provider.user.id), notice: "You have successfully been signed in!"
+        redirect_to root_path, notice: "You have successfully been signed in!"
       else
         @user = User.create_with_omniauth(auth_hash)
         session[:user_id] = @user.id
