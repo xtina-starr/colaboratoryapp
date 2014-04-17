@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def index
   end
 
-  def user_profile
+  def dashboard
     # should only be available to current_user
 
     @user = current_user
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
       videographer: params[:videographer],
       animator: params[:editor])
 
-      redirect_to user_profile_path, notice: 'User was successfully updated.'
+      redirect_to dashboard_path, notice: 'User was successfully updated.'
     else
       render action: 'edit'
     end
