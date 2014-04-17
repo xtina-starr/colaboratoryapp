@@ -8,11 +8,16 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
-gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'binding_of_caller'
 gem "httparty"
 gem 'therubyracer', platforms: :ruby
+
+# frontend
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+gem 'refills', git:'git@github.com:thoughtbot/refills.git'
 
 # gem 'net-ssh', "~>2.7"#, git: 'git@github.com:net-ssh/net-ssh.git'
 
@@ -27,7 +32,7 @@ gem 'omniauth-vimeo'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-soundcloud'
 
-#API wrapper
+# API wrapper
 gem 'vimeo'
 gem 'youtube_it'
 gem 'soundcloud'

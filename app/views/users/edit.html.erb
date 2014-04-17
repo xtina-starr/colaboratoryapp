@@ -4,8 +4,10 @@
   <% end %>
 <% end %>
 
-<h1>Complete your profile</h1>
+<div class="container_profile">
 
+  <h1 class="profile">Complete your profile</h1>
+<fieldset>
 <%= form_tag(@user, method: "put") do |f| %>
   <div>
     <%= label_tag :name, "Name:" %>
@@ -36,7 +38,8 @@
     <%= label_tag :bio, "Bio:" %>
     <%= text_area_tag :bio, @bio %>
   </div>
-
+</fieldset>
+<fieldset>
   <div>
     <p>So you're a creator, tell us more. Check the following that apply</p>
     <div>
@@ -91,6 +94,7 @@
 
     <%= hidden_field_tag :id, @user.id %>
   </div>
+</fieldset>
 
 <!--   <div class="field">
     <%#= label_tag :user_name %>
@@ -107,3 +111,4 @@
   <div class="actions"><%= submit_tag "submit" %></div>
   Submit should redirect to a page that lets user link other providers.
 <% end %>
+</div>

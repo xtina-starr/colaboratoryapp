@@ -1,0 +1,734 @@
+/*// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+/*background*/
+
+body.learnmore {
+  background: image-url('brickwall.png');
+  background-repeat: repeat;
+
+}
+
+
+
+/*Sign up page*/
+/*large picture*/
+.image-gradient {
+  background: image-url("DSCF3768.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  padding: 12em 0 12em 0;
+  position: relative;
+  width: 100%;
+  display: table;
+  margin-bottom: $base-line-height;
+    @include media($large-screen) {
+      padding: 18em 0 18em 0;
+    }
+
+  .copy {
+    position: absolute;
+    left: 50%;
+    margin: auto;
+    z-index: 999;
+    top: 40%;
+    text-align: center;
+
+    p.signup {
+      padding: 1em 2em;
+      position: relative;
+      left: -50%;
+      color: white;
+      font-weight: 800;
+      font-size: 30px;
+      background-color: transparentize(black, .6);
+    }
+  }
+}
+
+/*signin page same as sign up, but picture and copy different*/
+.image-gradient2 {
+  background: image-url("DeathtoStock_Band6.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  padding: 12em 0 12em 0;
+  position: relative;
+  width: 100%;
+  display: table;
+  margin-bottom: $base-line-height;
+    @include media($large-screen) {
+      padding: 18em 0 18em 0;
+    }
+
+  .copy {
+    position: absolute;
+    left: 50%;
+    margin: auto;
+    z-index: 999;
+    top: 40%;
+    text-align: center;
+
+    p.signup {
+      padding: 1em 2em;
+      position: relative;
+      left: -50%;
+      color: black;
+      font-weight: 800;
+      font-size: 30px;
+      background-color: transparentize(white, .5);
+    }
+  }
+}
+
+/*social media buttons*/@media (max-width: 500px) {
+  .button-group {
+    @include media($large-screen) {
+      button {
+        padding: 3em;
+      }
+    }
+  }/* Your styles for layouts that are 500px wide or less */
+}
+
+
+/*footer*/.footer-2 {
+  $footer-background: desaturate(darken($base-accent-color, 20), 30);
+  $footer-color: white;
+  $footer-link-color: transparentize($footer-color, .6);
+  $footer-disclaimer-color: transparentize($footer-color, .6);
+
+  background: $footer-background;
+  position: inherit;
+  padding: $base-line-height;
+  width: 100%;
+  padding-bottom: 3em;
+
+  .footer-logo {
+    margin-right: 1em;
+    margin-bottom: 1em;
+
+    @include media($large-screen) {
+      float: left;
+      margin-bottom: 0;
+    }
+  }
+
+  .footer-logo img {
+    height: 1.6em;
+  }
+
+  ul {
+    margin-bottom: 1em;
+    @include media($large-screen) {
+      float: left;
+      margin-left: 1em;
+      margin-bottom: 0;
+    }
+  }
+
+  ul li {
+    padding-right: 1em;
+    font-weight: 800;
+
+    @include media($large-screen) {
+      display: inline;
+      text-align: left;
+    }
+  }
+
+  ul li a {
+    color: $footer-link-color;
+
+    &:hover {
+      color: transparentize($footer-color, 0);
+    }
+  }
+
+  .footer-secondary-links {
+    @include media($large-screen) {
+      float: right;
+    }
+
+    li {
+      font-size: .8em;
+      font-weight: 400;
+    }
+
+    ul.footer-social {
+      margin-top: 1em;
+
+      @include media($large-screen) {
+        float: right;
+        margin-top: 0;
+      }
+
+      li {
+        float: left;
+        font-size: 1em;
+        padding-right: .7em;
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+
+      img {
+        opacity: .7;
+        height: 1.6em;
+        padding: 1px;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+
+
+/*Learn More Page*/
+/*Multi color grid*/
+@mixin grid-item-columns($columns) {
+  width: (100% / 12) * $columns;
+}
+
+.grid-items {
+  $grid-items-background: $base-body-color;
+  $grid-item-background: desaturate($base-accent-color, 30);
+  $grid-item-colors:
+    desaturate($base-accent-color, 30),
+    #3581A5,
+    #5FBEBE,
+    #98C79A,
+    #A7A891,
+    #BDCC97,
+    #979EA0;
+  $grid-item-border-size: 9px;
+  $grid-item-columns: 4;
+  $grid-item-big-columns: 8;
+  $grid-item-color: white;
+  $grid-item-height: 14em;
+
+  @include clearfix;
+
+  .grid-item {
+    @include transition (all 0.2s ease-in-out);
+    height: $grid-item-height;
+    background: $grid-item-background;
+    width: 100%;
+    overflow: hidden;
+    float: left;
+    padding: 2em;
+    border-top: 0;
+    border-bottom: $grid-item-border-size solid $grid-items-background;
+    border-left: $grid-item-border-size /2 solid $grid-items-background;
+    border-right: $grid-item-border-size /2 solid $grid-items-background;
+    text-align: center;
+    cursor: pointer;
+
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-columns);
+    }
+
+    @for $i from 1 to 8 { // assign colors from $grid-item-colors list
+      &:nth-child(#{$i}) {
+        $background-from-list: nth($grid-item-colors, $i);
+        background-color: $background-from-list;
+        box-shadow: inset 0px 0px 1px 2px darken($background-from-list, 10);
+        &:hover {
+          background-color: darken($background-from-list, 10);
+          background-repeat: no-repeat;
+          background-position: top;
+          background-size: cover;
+        }
+      }
+    }
+  }
+
+  .grid-item img {
+      display: block;
+      height: 3em;
+      margin: auto;
+      margin-bottom: 1em;
+    }
+
+  .grid-item h1 {
+      color: $grid-item-color;
+      font-size: 1.3em;
+      margin-bottom: .4em;
+    }
+
+  .grid-item p {
+      margin: auto;
+      color: transparentize($grid-item-color, .3);
+      @include media($medium-screen) {
+        max-width: 70%;
+      }
+    }
+
+  .grid-item-big {
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-big-columns);
+    }
+    p {
+      @include media($medium-screen) {
+        max-width: 60%;
+      }
+    }
+  }
+
+  .grid-item-image {
+    background: image-url('DeathtoStock_Band1.jpg');
+    background-color: $grid-item-background;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+  }
+
+  .grid-item-image2 {
+    background: image-url('large-camera.jpg');
+    background-color: $grid-item-background;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+  }
+}
+
+
+/*title*/
+h1.title{
+  margin-bottom: 30px;
+  margin-top: 60px;
+  text-align: center;
+
+}
+.co-b {
+  margin-left: .5em;
+  outline: solid;
+  outline-color: black;
+  font-size: 3em;
+  color: black;
+  text-align: center;
+    @include media($mobile) {
+      font-size: 1.5em;
+    }
+    @include media($medium-screen) {
+      font-size: 2em;
+    }
+    @include media($large-screen) {
+      font-size: 3em;
+    }
+}
+
+.lab-b {
+  font-size: 3em;
+  color: black;
+  text-align: center;
+    @include media($mobile) {
+      font-size: 1.5em;
+    }
+    @include media($medium-screen) {
+      font-size: 2em;
+    }
+    @include media($large-screen) {
+      font-size: 3em;
+    }
+}
+
+
+
+/*pop up modals*/
+.modal {
+  $modal-padding: 3em;
+  $modal-background: $base-body-color;
+  $modal-close-color: $light-gray;
+  $modal-image-height: 135px;
+  $modal-image-width: $modal-image-height;
+
+  label {
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+
+  label img {
+    $img-width: 300px;
+    border-radius: $img-width/2;
+    display: block;
+    max-width: $img-width;
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  .btn {
+    @include button(shiny, $base-body-color);
+    font-size: 12px;
+    margin-bottom: $base-line-height;
+  }
+
+  .modal-open {
+    overflow: hidden;
+  }
+
+  .modal-window { // overlay
+    @include transition(opacity .25s ease);
+    @include position(fixed, 0px 0px 0px 0px);
+    background: rgba(0,0,0, .85);
+    opacity: 0;
+    text-align: left;
+    visibility: hidden;
+    z-index: 99999999999;
+
+    .modal-bg {
+      @include position(absolute, 0px 0px 0px 0px);
+      cursor: pointer;
+    }
+  }
+
+  .modal-close {
+    @include position(absolute, ($modal-padding /2) ($modal-padding /2) 0 0);
+    @include size(1.5em);
+    cursor: pointer;
+    background: $modal-background;
+
+    &:after,
+    &:before {
+      @include position(absolute, 3px 3px 0 50%);
+      @include transform(rotate(45deg));
+      @include size(.15em 1.5em);
+      background: $modal-close-color;
+      content: '';
+      display: block;
+      margin: -3px 0 0 -1px;
+    }
+
+    &:hover:after,
+    &:hover:before {
+      background: darken($modal-close-color, 10);
+    }
+
+    &:before {
+      @include transform(rotate(-45deg));
+    }
+  }
+
+  .modal-inner {
+    @include transition(opacity .25s ease);
+    border-radius: $base-border-radius;
+    background: $modal-background;
+    margin: auto;
+    max-height: 95%;
+    position: relative;
+    overflow: auto;
+    width: 95%;
+    padding: $modal-padding /2;
+    margin-top: .6em;
+
+    @include media($medium-screen) {
+      padding: $modal-padding;
+      width: 60%;
+      max-height: 60%;
+      margin-top: 10em;
+    }
+
+    @include media($large-screen) {
+      width: 50%;
+      margin-top: 10em;
+    }
+
+    h1 {
+      color: $base-font-color;
+      margin-bottom: .6em;
+      text-align: center;
+      text-transform: capitalize;
+    }
+
+    p {
+      font-size: $base-font-size;
+      max-width: 100% !important;
+      padding: 0;
+      text-align: left;
+
+      &.intro {
+        color: $blue;
+        line-height: 1.6em;
+      }
+
+      &.body {
+        color: $base-font-color;
+        line-height: 1.45em;
+
+        @include media($medium-screen) {
+          @include columns(2 8em);
+        }
+      }
+    }
+
+    a.cta {
+      color: white;
+      display: inline-block;
+      margin-right: .5em;
+      margin-top: 1em;
+
+      &:last-child {
+        padding: 0 2em;
+      }
+    }
+  }
+
+  .modal-state:checked + .modal-window {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-state:checked + .modal-window .modal-inner {
+    top: 0;
+  }
+}
+
+
+
+/*about page*/
+.about-container { // small screens: accordion
+  $tab-border-color: $base-border-color;
+  $tab-border: 0px solid $tab-border-color;
+  $tab-border-radius: $base-border-radius;
+  $tab-content-background: lighten($tab-border-color, 10);
+  $tab-active-color: $tab-content-background;
+  $tab-inactive-color: $base-body-color;
+  $vertical-tabs-height: em(507);
+  margin: 4em;
+  $vertical-tab-mode: $medium-screen;
+
+  @include clearfix;
+  border-radius: $tab-border-radius;
+  border: $tab-border;
+  margin-bottom: $base-line-height;
+  overflow: hidden;
+
+}
+  article.type-system-slab {
+  $sans-serif: 'Open Sans', sans-serif;
+  $serif: 'Roboto Slab', serif;
+
+
+  @include clearfix;
+  text-align: left;
+
+  .type {
+    border-bottom: 1px solid;
+    display: inline-block;
+    font-family: $sans-serif;
+    font-size: .7em;
+    font-weight: 600;
+    margin-bottom: 2em;
+    padding: .1em 0;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-family: $serif;
+    font-size: 1.6em;
+    font-weight: 400;
+    margin-bottom: .6em;
+
+    @include media($medium-screen) {
+      font-size: 2.4em;
+    }
+  }
+
+  h2 {
+    font-family: $sans-serif;
+    font-size: 1.1em;
+    font-weight: 400;
+    line-height: 1.4em;
+    margin-bottom: 1.2em;
+
+    @include media($medium-screen) {
+      font-size: 1.4em;
+    }
+  }
+
+  h3 {
+   font-family: $serif;
+   font-size: 1em;
+   font-weight: 600;
+   text-transform: uppercase;
+   line-height: 1.4em;
+   margin-bottom: .5em;
+  }
+
+  p.date {
+    color: transparentize($base-font-color, .6);
+    font-family: $serif;
+    font-size: .8em;
+    margin-bottom: .5em;
+  }
+
+  p {
+    font-family: $serif;
+    font-weight: 300;
+    letter-spacing: 1;
+    margin-bottom: 1.5em;
+
+    span {
+      font-family: $sans-serif;
+      font-weight: 600;
+      font-size: .8em;
+      text-transform: uppercase;
+    }
+  }
+
+  a.read-more {
+    display: inline-block;
+    font-family: $serif;
+    font-weight: 700;
+    font-size: .8em;
+    text-transform: uppercase;
+    margin-left: .2em;
+    position: relative;
+
+    span {
+      position: absolute;
+      font-size: 1.8em;
+      top: -2px;
+      right: -12px;
+    }
+  }
+
+  hr {
+    width: 3em;
+  }
+
+  p.author {
+    font-family: $serif;
+  }
+}
+
+
+/*FAQ PAGE*/
+/*Vertical Tabs*/
+
+.innerfaq {
+  text-align: center;
+}
+
+body.faq {
+  background: image-url('squairy_light.png');
+  background-repeat: repeat;
+}
+
+.vertical-tabs-container { // small screens: accordion
+  $tab-border-color: $base-border-color;
+  $tab-border: 3px solid $tab-border-color;
+  $tab-border-radius: $base-border-radius;
+  $tab-content-background: lighten($tab-border-color, 10);
+  $tab-active-color: $tab-content-background;
+  $tab-inactive-color: $base-body-color;
+  $vertical-tabs-height: em(507);
+  margin-left: 4em;
+  margin-right: 4em;
+  $vertical-tab-mode: $medium-screen;
+
+
+  @include clearfix;
+  border-radius: $tab-border-radius;
+  border: $tab-border;
+  margin-bottom: $base-line-height;
+  overflow: hidden;
+
+  .vertical-tabs {
+    display: none;
+
+    @include media($vertical-tab-mode) {
+      background-color: $tab-inactive-color;
+      display: inline;
+      float: left;
+      height: $vertical-tabs-height;
+      width: 20%;
+    }
+  }
+
+  .vertical-tab {
+    @include media($vertical-tab-mode) {
+      border-bottom: $tab-border;
+      display: block;
+      font-weight: bold;
+      font-color: desaturate(darken($base-accent-color, 20), 30);
+      margin-right: -1px;
+      padding: $base-line-height/ 2$gutter/2;
+
+      &.is-active {
+        background-color: $tab-content-background;
+        margin-right: -1px;
+      }
+    }
+  }
+
+  .vertical-tab:focus {
+    outline: none;
+  }
+
+  .vertical-tab-content-container {
+    display: block;
+    margin: 0 auto;
+
+    & a:focus {
+      outline: none;
+    }
+
+    @include media($vertical-tab-mode) {
+      @include inline-block;
+      @include size(80% $vertical-tabs-height);
+      background-color: $tab-content-background;
+    }
+  }
+
+  .vertical-tab-content {
+    background-color: $tab-content-background;
+    padding: $base-line-height $gutter;
+
+    @include media($vertical-tab-mode) {
+      border: none;
+      display: none;
+    }
+  }
+
+  .vertical-tab-accordion-heading {
+    background-color: $tab-inactive-color;
+    border-top: $tab-border;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    padding: $base-line-height/3 $gutter/2;
+
+
+    &:hover {
+      color: $base-accent-color;
+    }
+
+    &:first-child {
+      border-top: solid;
+    }
+
+    &.is-active {
+      background: $tab-active-color;
+      border-bottom: none;
+    }
+
+    @include media($vertical-tab-mode) {
+      display: none;
+
+    }
+  }
+}
+
+.faqtitle {
+  text-align: center;
+}

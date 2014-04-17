@@ -1,9 +1,68 @@
-<h1>Homepage</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<body class="welcome">
+  <div class="large-space">
+<!--     <%#= link_to('Signin', signin_path, :class => 'button')  %> -->
+  </div>
+  <div class="container">
+    <div class="content-pri">
+      <span class="co">Co</span>  &nbsp; <span class="lab">Laboratory</span>
+    </div>
+    <div class="content-sec"></div>
+  </div>
+  <div class="container">
+    <div class="content-pri">
+      <div class="small-space">
+        <button type="button" class="js-menu-trigger sliding-menu-button">
+          Sign In | Sign Up | Learn More
+        </button>
 
-<p>sign up with one of these providers</p>
-<%= link_to("Soundcloud", "/auth/soundcloud", title: "Soundcloud") %>
-<%= link_to("Vimeo", "/auth/vimeo", title: "Vimeo") %>
-<%= link_to("Youtube", "auth/google_oauth2", title: "Youtube") %>
+        <nav class="js-menu sliding-menu-content">
+          <ul>
+            <li><a href="/signin">Sign In</a></li>
+            <li><a href="/signup">Sign Up</a></li>
+            <li><a href="/learn_more">Learn More</a></li>
+          </ul>
+        </nav>
 
-<%= link_to("Signout", sign_out_path) %>
+        <div class="js-menu-screen menu-screen"></div>
+          <!-- <button><%#= link_to('Signup', signup_path, :class => 'button')  %></button>
+          <button><%#= link_to('Learn More', learn_more_path, :class => 'button')  %></button> -->
+      </div>
+    <div class="content-sec"></div>
+  </div>
+  <div class="large-space">
+  </div>
+  <div class="container">
+    <div class="content-pri">
+    <!--
+    <%#= link_to("Soundcloud", "/auth/soundcloud", title: "Soundcloud") %>
+    <%#= link_to("Vimeo", "/auth/vimeo", title: "Vimeo") %>
+    <%#= link_to("Youtube", "auth/google_oauth2", title: "Youtube") %>
+    <%#= link_to("Signout", sign_out_path) %> -->
+    </div>
+  </div>
+</div>
+
+
+<!-- sliding model js-->
+
+
+
+<script>
+  $(document).ready(function(){
+
+    $('.js-menu-trigger').on('click touchstart', function(e){
+      $('.js-menu').toggleClass('is-visible');
+      $('.js-menu-screen').toggleClass('is-visible');
+      e.preventDefault();
+    });
+
+    $('.js-menu-screen').on('click touchstart', function(e){
+      $('.js-menu').toggleClass('is-visible');
+      $('.js-menu-screen').toggleClass('is-visible');
+      e.preventDefault();
+    });
+  });
+</script>
+
+
+
