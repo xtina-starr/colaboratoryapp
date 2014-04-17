@@ -1,6 +1,10 @@
 Index: future homepage (feed)
 
-
+<%= form_tag(search_path, method: "get") do %>
+  <%= label_tag(:search, "search:") %>
+  <%= text_field_tag(:search) %>
+  <%= submit_tag("Go") %>
+<% end %>
 
 
 <% @all_content.each do |content| %>
