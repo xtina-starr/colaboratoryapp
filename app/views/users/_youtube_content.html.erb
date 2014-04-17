@@ -18,6 +18,7 @@
 <% end %>
 </div>
 
+<%= link_to content.user.username, user_path(content.user_id) %><br>
 <iframe id="ytplayer" type="text/html" width="500" height="350"
     src="http://www.youtube.com/embed/<%= content.media_id %>"
     frameborder="0"></iframe>

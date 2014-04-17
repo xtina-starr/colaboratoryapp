@@ -18,4 +18,5 @@
 <% end %>
 </div>
 
+<%= link_to content.user.username, user_path(content.user_id) %><br>
 <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/<%= content.media_id %>" width="500" height="150" scrolling="no" frameborder="no"></iframe>
