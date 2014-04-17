@@ -24,4 +24,11 @@ class ContentsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def search
+    search_term = (params[:search])
+    uri = URI::encode(search_term)
+
+    @search_results = Content.search_content(uri)
+  end
+
 end
