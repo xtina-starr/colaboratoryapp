@@ -11,7 +11,7 @@ Colaboratory::Application.routes.draw do
   get "users/update"
 
 
-  get "profile", to: "users#user_profile", as: :user_profile
+  get "profile", to: "users#dashboard", as: :dashboard
   get "/search", to: "contents#search", as: :search
 
 
