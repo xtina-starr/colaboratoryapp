@@ -1,0 +1,6 @@
+<% @search_results.each do |content| %>
+  <%= render "users/#{content.provider.provider_type}_content", content: content %>
+  puts <%= content %>
+<% end %>
+
+Blahhhh

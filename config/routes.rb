@@ -12,6 +12,7 @@ Colaboratory::Application.routes.draw do
 
 
   get "profile", to: "users#user_profile", as: :user_profile
+  get "/search", to: "contents#search", as: :search
 
 
   # get "/auth/:provider",          to: "sessions#create"

@@ -18,5 +18,6 @@
 <% end %>
 </div>
 
+<%= link_to content.user.username, user_path(content.user_id) %><br>
 <iframe src="//player.vimeo.com/video/<%= content.media_id %>
   " width="500" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
