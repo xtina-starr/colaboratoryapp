@@ -1,64 +1,76 @@
-<body class= "faq">
-  <h1 class="title"> <span class="co-b">Co</span>  &nbsp; <span class="lab-b">Laboratory</span> </h1>
-  <h1 class="faqtitle">FAQ</h1>
-  <div class="vertical-tabs-container">
-    <div class="vertical-tabs">
-      <a href="#" class="js-vertical-tab vertical-tab is-active" rel="tab1">How does it work?</a>
-      <a href="#" class="js-vertical-tab vertical-tab" rel="tab2">Only Music & Video?</a>
-      <a href="#" class="js-vertical-tab vertical-tab" rel="tab3">How do I post my content?</a>
-      <a href="#" class="js-vertical-tab vertical-tab" rel="tab4">Great! Something broke.</a>
-      <a href="#" class="js-vertical-tab vertical-tab" rel="tab5">How do I collaborate?</a>
-      <a href="#" class="js-vertical-tab vertical-tab" rel="tab6">How do I leave feedback?</a>
-      <a href="#" class="js-vertical-tab vertical-tab" rel="tab7">Oh I have an idea!</a>
-      <a href="#" class="js-vertical-tab vertical-tab" rel="tab8">How do I set up my profile?</a>
+<html class= "header-background">
+  <body>
+    <h1 class="title"> <span class="co-b">Co</span>  &nbsp; <span class="lab-b">Laboratory</span> </h1>
+    <%= render "users/header" %>
+    <div class="background-container">
+      <div class="vertical-tabs-container">
+        <div class="vertical-tabs">
+          <a href="#" class="js-vertical-tab vertical-tab is-active" rel="tab1">How does it work?</a>
+          <a href="#" class="js-vertical-tab vertical-tab" rel="tab2">Only Music & Video?</a>
+          <a href="#" class="js-vertical-tab vertical-tab" rel="tab3">How do I post my content?</a>
+          <a href="#" class="js-vertical-tab vertical-tab" rel="tab4">Great! Something broke.</a>
+          <a href="#" class="js-vertical-tab vertical-tab" rel="tab5">How do I collaborate?</a>
+          <a href="#" class="js-vertical-tab vertical-tab" rel="tab6">How do I leave feedback?</a>
+          <a href="#" class="js-vertical-tab vertical-tab" rel="tab7">Oh I have an idea!</a>
+          <a href="#" class="js-vertical-tab vertical-tab" rel="tab8">How do I set up my profile?</a>
+        </div>
+
+        <div class="vertical-tab-content-container">
+          <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active" rel="tab1">Item 1</a>
+          <div id="tab1" class="js-vertical-tab-content vertical-tab-content">
+            <h1 class= "innerfaq">FAQ</h1>
+            <p>It just works</p>
+          </div>
+
+          <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab2">Item 2</a>
+          <div id="tab2" class="js-vertical-tab-content vertical-tab-content">
+            <h1 class= "innerfaq">FAQ</h1>
+            <p>This is version 1!!</p>
+          </div>
+
+          <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab3">Item 3</a>
+          <div id="tab3" class="js-vertical-tab-content vertical-tab-content">
+            <h1 class= "innerfaq">FAQ</h1>
+            <p>Sign up exclusivly with your Youtube, Vimeo, or Soundcloud accounts that have the content you want to share.
+               Then when in your dashboard, click "Connect more accounts".</p>
+          </div>
+
+          <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab4">Item 4</a>
+          <div id="tab4" class="js-vertical-tab-content vertical-tab-content">
+            <h1 class= "innerfaq">FAQ</h1>
+            <p>Please email us with a screenshot or a nice description of what happened!</p>
+          </div>
+
+            <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab5">Item 5</a>
+          <div id="tab5" class="js-vertical-tab-content vertical-tab-content">
+            <h1 class= "innerfaq">FAQ</h1>
+            <p>Search and browse other users and if they indicate they are looking for collaboration, click and leave a comment.</p>
+          </div>
+
+          <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab6">Item 6</a>
+          <div id="tab6" class="js-vertical-tab-content vertical-tab-content">
+            <h1 class= "innerfaq">FAQ</h1>
+          <p>Search and browse other users and if they indicate they are looking for feedback, click and leave a comment.</p>
+          </div>
+
+          <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab7">Item 7</a>
+          <div id="tab7" class="js-vertical-tab-content vertical-tab-content">
+            <h1 class= "innerfaq">FAQ</h1>
+          <p>Email us, we'd love to hear more!</p>
+          </div>
+
+          <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab8">Item 8</a>
+          <div id="tab8" class="js-vertical-tab-content vertical-tab-content">
+            <h1 class= "innerfaq">FAQ</h1>
+          <p>A profile will be set up when you sign up, but if didn't happen click on your dashboard and fill out all the </p>
+          </div>
+
+        </div>
+      </div>
     </div>
-
-    <div class="vertical-tab-content-container">
-      <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active" rel="tab1">Item 1</a>
-      <div id="tab1" class="js-vertical-tab-content vertical-tab-content">
-        <p>It just works</p>
-      </div>
-
-      <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab2">Item 2</a>
-      <div id="tab2" class="js-vertical-tab-content vertical-tab-content">
-        <p>This is version 1!!</p>
-      </div>
-
-      <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab3">Item 3</a>
-      <div id="tab3" class="js-vertical-tab-content vertical-tab-content">
-        <p>Sign up exclusivly with your Youtube, Vimeo, or Soundcloud accounts that have the content you want to share.
-           Then when in your dashboard, click "Connect more accounts".</p>
-      </div>
-
-      <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab4">Item 4</a>
-      <div id="tab4" class="js-vertical-tab-content vertical-tab-content">
-        <p>Please email us with a screenshot or a nice description of what happened!</p>
-      </div>
-
-        <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab5">Item 5</a>
-      <div id="tab5" class="js-vertical-tab-content vertical-tab-content">
-        <p>Search and browse other users and if they indicate they are looking for collaboration, click and leave a comment.</p>
-      </div>
-
-      <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab6">Item 6</a>
-      <div id="tab6" class="js-vertical-tab-content vertical-tab-content">
-      <p>Search and browse other users and if they indicate they are looking for feedback, click and leave a comment.</p>
-      </div>
-
-      <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab7">Item 7</a>
-      <div id="tab7" class="js-vertical-tab-content vertical-tab-content">
-      <p>Email us, we'd love to hear more!</p>
-      </div>
-
-      <a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab8">Item 8</a>
-      <div id="tab8" class="js-vertical-tab-content vertical-tab-content">
-      <p>A profile will be set up when you sign up, but if didn't happen click on your dashboard and fill out all the </p>
-      </div>
-
-    </div>
-  </div>
-<%= render "footer" %>
-</body>
+      <%= render "footer" %>
+  </body>
+</html>
 
 <script>
   $(".js-vertical-tab-content").hide();

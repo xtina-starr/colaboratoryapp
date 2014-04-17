@@ -310,14 +310,14 @@ h1.title{
   margin-left: .5em;
   outline: solid;
   outline-color: black;
-  font-size: 3.5em;
+  font-size: 3em;
   color: black;
   text-align: center;
     @include media($mobile) {
-      font-size: 2em;
+      font-size: 1.5em;
     }
     @include media($medium-screen) {
-      font-size: 4em;
+      font-size: 2em;
     }
     @include media($large-screen) {
       font-size: 3em;
@@ -325,14 +325,14 @@ h1.title{
 }
 
 .lab-b {
-  font-size: 3.5em;
+  font-size: 3em;
   color: black;
   text-align: center;
     @include media($mobile) {
-      font-size: 2em;
+      font-size: 1.5em;
     }
     @include media($medium-screen) {
-      font-size: 4em;
+      font-size: 2em;
     }
     @include media($large-screen) {
       font-size: 3em;
@@ -614,6 +614,10 @@ h1.title{
 
 /*FAQ PAGE*/
 /*Vertical Tabs*/
+
+.innerfaq {
+  text-align: center;
+}
 
 body.faq {
   background: image-url('squairy_light.png');
