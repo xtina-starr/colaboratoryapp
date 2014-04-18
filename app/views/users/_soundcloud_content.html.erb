@@ -1,21 +1,21 @@
 <div class="soundcloud-content">
   <p> <%= link_to content.title, content_path(content.id) %> </p>
 
-  <div>
+  <div class="tag-c">
   <% if content.collab %>
-    <%= "Looking to collaborate." %>
+    <%= "collaborate" %>
   <% end %>
   </div>
 
-  <div>
+  <div class="tag-f">
   <% if content.feedback %>
-    <%= "Seeking feedback on this project." %>
+    <%= "feedback" %>
   <% end %>
   </div>
 
-  <div>
+  <div class="tag-l">
   <% if content.latest %>
-    <%= "My latest project." %>
+    <%= "latest" %>
   <% end %>
   </div>
 
