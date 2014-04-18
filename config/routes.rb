@@ -13,6 +13,9 @@ Colaboratory::Application.routes.draw do
 
   get "profile", to: "users#dashboard", as: :dashboard
   get "/search", to: "contents#search", as: :search
+  get "/search/collaborators", to: "contents#collabs", as: :collaboration
+  get "/search/feedback", to: "contents#feedback", as: :feedback
+  get "/search/latest", to: "contents#latest", as: :latest
 
 
   # get "/auth/:provider",          to: "sessions#create"

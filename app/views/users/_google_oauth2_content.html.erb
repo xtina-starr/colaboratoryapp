@@ -1,24 +1,28 @@
 <p><%= link_to content.title, content_path(content.id) %></p>
 
-<div>
-<% if content.collab %>
-  <%= "Looking to collaborate." %>
-<% end %>
-</div>
+<div class="youtube_content">
+  <div class="tags">
+    <div class="tag-c">
+      <% if content.collab %>
+        <%= "collaborate" %>
+      <% end %>
+    </div>
 
-<div>
-<% if content.feedback %>
-  <%= "Seeking feedback on this project." %>
-<% end %>
-</div>
+    <div class="tag-f">
+      <% if content.feedback %>
+        <%= "feedback" %>
+      <% end %>
+    </div>
 
-<div>
-<% if content.latest %>
-  <%= "My latest project." %>
-<% end %>
-</div>
+    <div class="tag-l">
+      <% if content.latest %>
+        <%= "latest" %>
+      <% end %>
+    </div>
+  </div>
 
-<%= link_to content.user.username, user_path(content.user_id) %><br>
-<iframe id="ytplayer" type="text/html" width="500" height="350"
-    src="http://www.youtube.com/embed/<%= content.media_id %>"
-    frameborder="0"></iframe>
+  <%= link_to content.user.username, user_path(content.user_id) %><br>
+  <iframe id="ytplayer" type="text/html" width="500" height="350"
+      src="http://www.youtube.com/embed/<%= content.media_id %>"
+      frameborder="0"></iframe>
+</div>
