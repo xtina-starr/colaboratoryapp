@@ -1,7 +1,7 @@
 
 
 <h1><%= @user.username %> </h1>
-<%= @user.location %> | <%= @user.website %><br>
+<%= @user.location %> | <a href="<%= @user.website %>"><%= @user.website %><br></a>
 <h4><%= roles(@user).join("/") %><h4><br>
 
 <%= @user.bio %>
