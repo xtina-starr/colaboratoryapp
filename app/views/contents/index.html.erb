@@ -11,8 +11,10 @@ Index: future homepage (feed)
 <body>
  <section class="blog">
   <div class="collabs-feedback-latest">
-  <%= link_to "Collaborate" %> | <%= link_to "Feedback" %> | <%= link_to "Latest" %>
-</div>
+    <%= link_to "Collaborate", collaboration_path %> | <%= link_to "Feedback", feedback_path %> | <%= link_to "Latest", latest_path %>
+  </div>
+
+
   <aside>
   <%= form_tag(search_path, method: "get") do %>
   <%= label_tag(:search, "search:") %>
