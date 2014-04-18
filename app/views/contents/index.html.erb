@@ -8,10 +8,26 @@ Index: future homepage (feed)
   <% end %>
 </div>
 
-<div class="collabs-feedback-latest">
-  <%= link_to "Collaborate", collaboration_path %> | <%= link_to "Feedback", feedback_path %> | <%= link_to "Latest", latest_path %>
+<body>
+ <section class="blog">
+  <div class="collabs-feedback-latest">
+  <%= link_to "Collaborate" %> | <%= link_to "Feedback" %> | <%= link_to "Latest" %>
 </div>
-
-<% @all_content.each do |content| %>
+  <aside>
+  <%= form_tag(search_path, method: "get") do %>
+  <%= label_tag(:search, "search:") %>
+  <%= text_field_tag(:search) %>
+  <%= submit_tag("Go") %>
+  <% end %>
+</aside>
+  <article>
+  <% @all_content.each do |content| %>
   <%= render "users/#{content.provider.provider_type}_content", content: content %>
 <% end %>
+</article>
+ </section>
+</body>
+
+
+
+

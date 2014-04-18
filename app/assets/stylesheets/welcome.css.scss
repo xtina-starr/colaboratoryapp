@@ -5,7 +5,7 @@ h1 {
   font-family: $serif;
   font-size: 1.6em;
   font-weight: 400;
-  /*margin-bottom: .6em;*/
+  /*margin-bottom: .4em;*/
 
   @include media($medium-screen) {
     font-size: 2.4em;
@@ -132,6 +132,11 @@ $sliding-menu-color-hover: #fff;
   img {
     height: 1.3em;
   }
+
+  @include media($mobile) {
+      font-size: 10px;
+      width: 230px;
+    }
 }
 
 .sliding-menu-content {
@@ -176,5 +181,13 @@ $sliding-menu-color-hover: #fff;
   }
 }
 
+.mini-space {
+  padding-bottom: 1em;
+}
+
+.mini-space2 {
+width: 400px;
+height: 60px;
+}
 
 
