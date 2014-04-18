@@ -212,7 +212,7 @@ body.learnmore {
   $grid-item-big-columns: 8;
   $grid-item-color: white;
   $grid-item-height: 13em;
-  margin-top: 100px;
+  margin-top: .5px;
 
   @include clearfix;
 
@@ -634,6 +634,7 @@ body.faq {
   $tab-active-color: $tab-content-background;
   $tab-inactive-color: $base-body-color;
   $vertical-tabs-height: em(507);
+  margin-top: 1em;
   margin-left: 4em;
   margin-right: 4em;
   $vertical-tab-mode: $medium-screen;
