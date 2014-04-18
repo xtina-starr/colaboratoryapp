@@ -15,6 +15,9 @@ class SessionsController < ApplicationController
     else
       if @provider
         session[:user_id] = @provider.user.id
+        if @provider.provider_type == "google_oauth2"
+          @provider.update(token: auth_hash['credentials']['token'])
+        end
         redirect_to root_path, notice: "You have successfully been signed in!"
       else
         @user = User.create_with_omniauth(auth_hash)
