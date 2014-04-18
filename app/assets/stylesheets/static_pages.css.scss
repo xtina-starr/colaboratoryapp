@@ -637,8 +637,8 @@ body.faq {
   margin-top: 1em;
   margin-left: 4em;
   margin-right: 4em;
+  font-family: $sans-serif;
   $vertical-tab-mode: $medium-screen;
-
 
   @include clearfix;
   border-radius: $tab-border-radius;
@@ -735,4 +735,14 @@ body.faq {
 
 .faqtitle {
   text-align: center;
+}
+
+p.faqs{
+  $sans-serif: 'Open Sans', sans-serif;
+  $serif: 'Roboto Slab', serif;
+
+  font-size: 26px;
+  font-family: $sans-serif;
+  font-weight: 300px;
+  text-align: justify;
 }
