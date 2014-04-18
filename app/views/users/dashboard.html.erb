@@ -21,7 +21,7 @@
       <h2> <%= @user.username %>'s content: </h2>
 
       <% item_counter = 0 %>
-
+    <div class="content-form">  
       <%= form_tag(contents_path, method: "post") do %>
         <% if @tracks %>
           <% @tracks.each do |track| %>
@@ -34,12 +34,14 @@
             <%= hidden_field_tag "[content_items][#{item_counter}][media_id]", track["id"] %>
             <%= hidden_field_tag "[content_items][#{item_counter}][user_id]", @user.id %>
             <%= hidden_field_tag "[content_items][#{item_counter}][provider_id]", @user.providers.find_by(provider_type: "soundcloud").id %>
+            <div class="checkbox">
             <%= label_tag :collab, "Collab:" %>
             <%= check_box_tag "[content_items][#{item_counter}][collab]", true %>
             <%= label_tag :feedback, "Feedback:" %>
             <%= check_box_tag "[content_items][#{item_counter}][feedback]", true %>
             <%= label_tag :latest, "Latest:" %>
-            <%= check_box_tag "[content_items][#{item_counter}][latest]", true %><br>
+            <%= check_box_tag "[content_items][#{item_counter}][latest]", true %>
+            </div><br>
 
             <% item_counter += 1 %>
           <% end %>
@@ -57,12 +59,14 @@
             <%= hidden_field_tag "[content_items][#{item_counter}][media_id]", v["id"] %>
             <%= hidden_field_tag "[content_items][#{item_counter}][user_id]", @user.id %>
             <%= hidden_field_tag "[content_items][#{item_counter}][provider_id]", @user.providers.find_by(provider_type: "vimeo").id %>
+            <div class="checkbox">
             <%= label_tag :collab, "Collab:" %>
             <%= check_box_tag "[content_items][#{item_counter}][collab]", true %>
             <%= label_tag :feedback, "Feedback:" %>
             <%= check_box_tag "[content_items][#{item_counter}][feedback]", true %>
             <%= label_tag :latest, "Latest:" %>
-            <%= check_box_tag "[content_items][#{item_counter}][latest]", true %><br>
+            <%= check_box_tag "[content_items][#{item_counter}][latest]", true %>
+            </div><br>
 
             <% item_counter += 1 %>
 
@@ -76,18 +80,19 @@
             <iframe id="ytplayer" type="text/html" width="500" height="350"
           src="http://www.youtube.com/embed/<%= v["video_id"] %>"
           frameborder="0"></iframe><br>
-            <%= v["video_id"] %>
 
             <%= hidden_field_tag "[content_items][#{item_counter}][title]", v["title"] %>
             <%= hidden_field_tag "[content_items][#{item_counter}][media_id]", v["video_id"] %>
             <%= hidden_field_tag "[content_items][#{item_counter}][user_id]", @user.id %>
             <%= hidden_field_tag "[content_items][#{item_counter}][provider_id]", @user.providers.find_by(provider_type: "google_oauth2").id %>
+            <div class="checkbox">
             <%= label_tag :collab, "Collab:" %>
             <%= check_box_tag "[content_items][#{item_counter}][collab]", true %>
             <%= label_tag :feedback, "Feedback:" %>
             <%= check_box_tag "[content_items][#{item_counter}][feedback]", true %>
             <%= label_tag :latest, "Latest:" %>
-            <%= check_box_tag "[content_items][#{item_counter}][latest]", true %><br>
+            <%= check_box_tag "[content_items][#{item_counter}][latest]", true %><
+            </div>br>
 
             <% item_counter += 1 %>
 
@@ -96,7 +101,8 @@
 
         <div class="actions"><%= submit_tag "submit" %></div>
       <% end %>
-
+    </div>
+    
       <h2>Link another service</h2>
       <%= link_to("Vimeo", "/auth/vimeo") %>
       <%= link_to("Soundcloud", "/auth/soundcloud") %>
