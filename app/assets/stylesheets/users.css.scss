@@ -211,3 +211,29 @@ header.navigation {
     }
   }
 }
+div.content-form {
+  margin: 0 auto;
+}
+
+div.checkbox {
+  display: inline-flex;
+}
+
+div.checkbox input {
+  margin-right: 50px;
+}
+
+div.youtube-content {
+  text-align: center;
+  border-bottom: 1px solid grey;
+}
+
+div.vimeo-content {
+  text-align: center;
+  border-bottom: 1px solid grey;
+}
+
+div.soundcloud-content {
+  text-align: center;
+  border-bottom: 1px solid grey;
+}
