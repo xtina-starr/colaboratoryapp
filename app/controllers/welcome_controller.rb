@@ -5,6 +5,7 @@ class WelcomeController < ApplicationController
       render "/contents/index"
     else
       @hide_navbar = true
+      @hide_footer = true
     end
   end
 
