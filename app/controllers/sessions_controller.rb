@@ -6,11 +6,11 @@ class SessionsController < ApplicationController
 
     if current_user
       if @provider
-        redirect_to dashboard(current_user.id), notice: "This user already exists!"
+        redirect_to dashboard_path(current_user.id), notice: "This user already exists!"
       else
         provider = Provider.create_with_omniauth(auth_hash, current_user.id)
 
-        redirect_to dashboard(current_user.id), notice: "Account added!"
+        redirect_to dashboard_path(current_user.id), notice: "Account added!"
       end
     else
       if @provider
