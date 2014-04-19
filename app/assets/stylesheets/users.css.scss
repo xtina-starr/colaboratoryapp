@@ -263,6 +263,26 @@ div.soundcloud-content {
   margin: 0 auto;
 }
 
+.navigation-search-bar input, .navigation-search-bar label {
+  display: inline-block;
+  width: auto;
+  height: 30px;
+  padding: 0.2em;
+  margin-top: 0.2em;
+  margin-bottom: 0.4em;
+}
+
+.navigation-search-bar input[type="submit"] {
+  padding: 0px 8px;
+   
+}
+
+.navigation-search-bar input[type="input"] {
+  line-height: 25px;
+  height: 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) inset;
+}
+
 /*.tag-f {
       background: badge-notice-color;
       color: darken(badge-error-color, 60);

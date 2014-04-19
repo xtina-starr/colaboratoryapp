@@ -4,7 +4,7 @@ class YoutubeProvider
     @key = ENV['GOOGLE_API_KEYS']
   end
 
-  def self.refresh_token(provider)
+  def refresh_token(provider)
 
     response = HTTParty.post('https://accounts.google.com/o/oauth2/token', 
       :body => { 
@@ -25,7 +25,7 @@ class YoutubeProvider
       if provider.expiresat 
         expiry = Time.at(provider.expiresat)
       else
-        expiry = Time.now + 2.hours
+        expiry = Time.now + 2.days
       end 
         return true if expiry < Time.now ## expired token, so we should quickly return
         provider.expiresat = expiry
@@ -34,9 +34,9 @@ class YoutubeProvider
   end
 
   def get_channels_for_user(user_token)
-    # user = Provider.find_by(token: user_token)
-    if token_expired?(Provider.find_by(token: user_token))
-      user_token = refresh_token(Provider.find_by(token: user_token))
+    provider = Provider.find_by(token: user_token)
+    if token_expired?(provider)
+      user_token = refresh_token(provider)
     end
 
     channel = HTTParty.get("https://www.googleapis.com/youtube/v3/channels?part=id&mine=true&access_token=#{user_token}&key=#{@key}")
