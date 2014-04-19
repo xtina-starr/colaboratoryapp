@@ -4,7 +4,7 @@ class YoutubeProvider
     @key = ENV['GOOGLE_API_KEYS']
   end
 
-  def self.refresh_token(provider)
+  def refresh_token(provider)
 
     response = HTTParty.post('https://accounts.google.com/o/oauth2/token', 
       :body => { 
