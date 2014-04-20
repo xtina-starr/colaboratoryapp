@@ -1,24 +1,33 @@
-<div class="soundcloud-content">
-  <p> <%= link_to content.title, content_path(content.id) %> </p>
+<div class="content-wrapper">
+  <div class="soundcloud-content">
+    <figure class="with-caption">
+      <div class="video-wrapper">
+        <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/<%= content.media_id %>" width="700" height="150" scrolling="no" frameborder="no"></iframe>
+      </div>
+    <div class="caption">
+      <p> <%= link_to content.title, content_path(content.id) %> </p>
+      <p>By: <%= link_to content.user.username, user_path(content.user_id) %></p>
 
-  <div class="tag-c">
-  <% if content.collab %>
-    <%= "collaborate" %>
-  <% end %>
+    <div class="tags">
+      <div class="tag-c">
+      <% if content.collab %>
+        <%= "collaborate" %>
+      <% end %>
+      </div>
+
+      <div class="tag-f">
+      <% if content.feedback %>
+        <%= "feedback" %>
+      <% end %>
+      </div>
+
+      <div class="tag-l">
+      <% if content.latest %>
+        <%= "latest" %>
+      <% end %>
+      </div>
+    </div>
+    </div>
+    </figure>
   </div>
-
-  <div class="tag-f">
-  <% if content.feedback %>
-    <%= "feedback" %>
-  <% end %>
-  </div>
-
-  <div class="tag-l">
-  <% if content.latest %>
-    <%= "latest" %>
-  <% end %>
-  </div>
-
-  <%= link_to content.user.username, user_path(content.user_id) %><br>
-  <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/<%= content.media_id %>" width="500" height="150" scrolling="no" frameborder="no"></iframe>
 </div>

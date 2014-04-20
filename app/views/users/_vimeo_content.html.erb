@@ -1,26 +1,34 @@
-<div class="vimeo-content">
-  <p><%= link_to content.title, content_path(content.id) %></p>
+<div class="content-wrapper">
+  <div class="vimeo-content">
+    <figure class="with-caption">
+      <div class="video-wrapper">
+        <iframe src="//player.vimeo.com/video/<%= content.media_id %>
+        " width="700" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+      <div class="caption">
+      <p><%= link_to content.title, content_path(content.id) %></p>
+      <p>By: <%= link_to content.user.username, user_path(content.user_id) %></p>
 
+      <div class="tags">
+        <div class="tag-c">
+        <% if content.collab %>
+          <%= "collaborate" %>
+        <% end %>
+        </div>
 
-  <div>
-  <% if content.collab %>
-    <%= "collaborate" %>
-  <% end %>
+        <div class="tag-f">
+        <% if content.feedback %>
+          <%= "feedback" %>
+        <% end %>
+        </div>
+
+        <div class="tag-l">
+        <% if content.latest %>
+          <%= "latest" %>
+        <% end %>
+        </div>
+      </div>
+      </div>
+    </figure>
   </div>
-
-  <div>
-  <% if content.feedback %>
-    <%= "feedback" %>
-  <% end %>
-  </div>
-
-  <div>
-  <% if content.latest %>
-    <%= "latest" %>
-  <% end %>
-  </div>
-
-  <%= link_to content.user.username, user_path(content.user_id) %><br>
-  <iframe src="//player.vimeo.com/video/<%= content.media_id %>
-    " width="500" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </div>

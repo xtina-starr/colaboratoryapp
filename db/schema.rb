@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20140403172916) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "username"
+    t.string   "avatar"
+    t.string   "status"
     t.string   "email"
     t.string   "location"
     t.string   "website"
