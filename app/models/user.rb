@@ -12,4 +12,5 @@ class User < ActiveRecord::Base
       avatar: auth_hash['info']['image']
       )
   end
+  
 end
