@@ -10,10 +10,11 @@
 </div>
 
 <h2> <%= @user.username %>'s content: </h2>
-
+  <div class="all-content">
   <% @contents.each do |content| %>
     <%= render "#{content.provider.provider_type}_content", content: content %>
   <% end %>
+  </div>
 
 <!-- <h2>Link another service</h2> -->
 <%#= link_to("Vimeo", "/auth/vimeo") %>
