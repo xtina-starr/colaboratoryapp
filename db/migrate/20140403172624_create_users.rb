@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string  :email
       t.string  :location
       t.string  :website
-      t.string  :bio
+      t.text    :bio
       t.boolean :dj,           :default => false
       t.boolean :producer,     :default => false 
       t.boolean :rapper,       :default => false
