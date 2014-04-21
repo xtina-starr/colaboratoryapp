@@ -283,7 +283,15 @@ div.soundcloud-content {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) inset;
 }
 
+div.select label {
+  display: inline;
+}
+
 div.select {
+
+}
+
+div.username h1, div.username p {
   display: inline;
 }
 
