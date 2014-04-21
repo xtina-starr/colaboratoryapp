@@ -14,7 +14,9 @@
       <p><%= @user.location %> | <%= @user.website %></p><br>
       <h4><%= roles(@user).join("/") %><h4><br>
 
-      <%= @user.bio %>
+      <div class="bio">
+        <%= @user.bio %>
+      </div>
 
       <div>
       </div>
