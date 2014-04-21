@@ -295,3 +295,16 @@ div.username h1, div.username p {
   display: inline;
 }
 
+@mixin ellipsis($width: 100%) {
+  display: inline-block;
+  max-width: $width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+div.bio {
+  @include ellipsis(50%);
+}
+
+
