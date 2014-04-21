@@ -225,40 +225,40 @@ div.checkbox input {
 
 div.youtube-content {
   text-align: center;
-  border-bottom: 1px solid grey;
+  /*border-bottom: 1px solid grey;*/
 }
 
 div.vimeo-content {
   text-align: center;
-  border-bottom: 1px solid grey;
+  /*border-bottom: 1px solid grey;*/
 }
 
 div.soundcloud-content {
   text-align: center;
-  border-bottom: 1px solid grey;
+  /*border-bottom: 1px solid grey;*/
 }
 
 
 .tag-c {
-  border:1px solid #a1a1a1;
-  background:#5fbebe;
-  border-radius: 2em;
+  /*border:1px solid #a1a1a1;*/
+  color:#5fbebe;
+  /*border-radius: 2em;*/
   width: 100px;
   margin: 0 auto;
 }
 
 .tag-f {
-  border:1px solid #a1a1a1;
-  background:#77b57a;
-  border-radius: 2em;
+  /*border:1px solid #a1a1a1;*/
+  color:#77b57a;
+/*  border-radius: 2em;*/
   width: 100px;
   margin: 0 auto;
 }
 
 .tag-l {
-  border:1px solid #6b83a6;
-  background:#76b57a;
-  border-radius: 2em;
+  /*border:1px solid #6b83a6;*/
+  color:#2e9fff;
+  /*border-radius: 2em;*/
   width: 100px;
   margin: 0 auto;
 }
@@ -283,14 +283,28 @@ div.soundcloud-content {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) inset;
 }
 
-/*.tag-f {
-      background: badge-notice-color;
-      color: darken(badge-error-color, 60);
-    }
-
-.tag-l {
-      background: badge-success-color;
-      color: darken(badge-success-color, 60);
+div.select label {
+  display: inline;
 }
-*/
+
+div.select {
+
+}
+
+div.username h1, div.username p {
+  display: inline;
+}
+
+@mixin ellipsis($width: 100%) {
+  display: inline-block;
+  max-width: $width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+div.bio {
+  @include ellipsis(50%);
+}
+
 

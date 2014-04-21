@@ -1,3 +1,5 @@
-<% @contents.each do |content| %>
-  <%= render "users/#{content.provider.provider_type}_content", content: content %>
-<% end %>
+<div class="all-content">
+  <% @contents.each do |content| %>
+    <%= render "users/#{content.provider.provider_type}_content", content: content %>
+  <% end %>
+</div>
