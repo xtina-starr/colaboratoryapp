@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20140403172916) do
     t.string   "email"
     t.string   "location"
     t.string   "website"
-    t.string   "bio"
+    t.text     "bio"
     t.boolean  "dj",           default: false
     t.boolean  "producer",     default: false
     t.boolean  "rapper",       default: false
