@@ -1,6 +1,8 @@
 div.collabs-feedback-latest {
   text-align: center;
-  border-bottom: 1px solid grey;
+  /*border-bottom: 1px solid grey;*/
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 div.search-bar {
@@ -13,6 +15,7 @@ div.content-show {
 
 div.disqus {
   width: 800px;
+  margin: 20px auto;
 }
 
 div.center-discus {
@@ -27,8 +30,17 @@ div.all-content {
 
 div.content-wrapper {
   width: 700px;
-  height: 581px;
-  
+  height: 300px;
+  margin-top: 40px;
+  margin-bottom: 200px;
+  width: 100%;
+}
+
+div.content-wrapper-soundcloud {
+  width: 700px;
+  height: 300px;
+  margin-top: 40px;
+  margin-bottom: 60px;
   width: 100%;
 }
 
