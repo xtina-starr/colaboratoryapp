@@ -6,9 +6,12 @@
     
   <div class="about-container">
 
-
-      <h1><%= @user.username %> </h1>
-      <%= @user.location %> | <%= @user.website %><br>
+      <img src="<%= @user.avatar %>">
+      <div class="username">
+        <h1><%= @user.username %></h1>
+        <p><%= link_to "edit profile", edit_user_path(current_user.id) %></p>
+      </div>
+      <p><%= @user.location %> | <%= @user.website %></p><br>
       <h4><%= roles(@user).join("/") %><h4><br>
 
       <%= @user.bio %>
@@ -23,48 +26,55 @@
       <%= form_tag(contents_path, method: "post") do %>
         <% if @tracks %>
           <% @tracks.each do |track| %>
-            <%= check_box_tag "[content_items][#{item_counter}][content]", true %>
-            <%= label_tag :title, "Title:" %> <%= track[:title] %><br>
-            <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/<%= track["id"] %>" width="500" height="150" scrolling="no" frameborder="no"></iframe><br>
-            <% track.inspect%>
+            <div class"sound">
+              <div class="select">
+                <%= check_box_tag "[content_items][#{item_counter}][content]", true %>
+                <%= label_tag :title, "Title:" %> <%= track[:title] %><br>
+              </div>
+                <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/<%= track["id"] %>" width="500" height="150" scrolling="no" frameborder="no"></iframe><br>
+              
 
-            <%= hidden_field_tag "[content_items][#{item_counter}][title]", track["title"] %>
-            <%= hidden_field_tag "[content_items][#{item_counter}][media_id]", track["id"] %>
-            <%= hidden_field_tag "[content_items][#{item_counter}][user_id]", @user.id %>
-            <%= hidden_field_tag "[content_items][#{item_counter}][provider_id]", @user.providers.find_by(provider_type: "soundcloud").id %>
-            <div class="checkbox">
-            <%= label_tag :collab, "Collab:" %>
-            <%= check_box_tag "[content_items][#{item_counter}][collab]", true %>
-            <%= label_tag :feedback, "Feedback:" %>
-            <%= check_box_tag "[content_items][#{item_counter}][feedback]", true %>
-            <%= label_tag :latest, "Latest:" %>
-            <%= check_box_tag "[content_items][#{item_counter}][latest]", true %>
-            </div><br>
-
+              <%= hidden_field_tag "[content_items][#{item_counter}][title]", track["title"] %>
+              <%= hidden_field_tag "[content_items][#{item_counter}][media_id]", track["id"] %>
+              <%= hidden_field_tag "[content_items][#{item_counter}][user_id]", @user.id %>
+              <%= hidden_field_tag "[content_items][#{item_counter}][provider_id]", @user.providers.find_by(provider_type: "soundcloud").id %>
+              <div class="checkbox">
+              <%= label_tag :collab, "Collab:" %>
+              <%= check_box_tag "[content_items][#{item_counter}][collab]", true %>
+              <%= label_tag :feedback, "Feedback:" %>
+              <%= check_box_tag "[content_items][#{item_counter}][feedback]", true %>
+              <%= label_tag :latest, "Latest:" %>
+              <%= check_box_tag "[content_items][#{item_counter}][latest]", true %>
+              </div><br>
             <% item_counter += 1 %>
+            </div>
           <% end %>
 
         <% end %>
 
         <% if @videos %>
           <% @videos["videos"]["video"].each do |v| %>
-            <%= check_box_tag "[content_items][#{item_counter}][content]", true %>
-            <%= label_tag :title, "Title:" %> <%= v["title"] %><br>
-            <iframe src="//player.vimeo.com/video/<%= v["id"] %>
-          " width="500" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><br>
+            <div class="v-vids">
+              <div class="select">
+                <%= check_box_tag "[content_items][#{item_counter}][content]", true %>
+                <%= label_tag :title, "Title:" %> <%= v["title"] %><br>
+              </div>
+              <iframe src="//player.vimeo.com/video/<%= v["id"] %>
+            " width="500" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><br>
 
-            <%= hidden_field_tag "[content_items][#{item_counter}][title]", v["title"] %>
-            <%= hidden_field_tag "[content_items][#{item_counter}][media_id]", v["id"] %>
-            <%= hidden_field_tag "[content_items][#{item_counter}][user_id]", @user.id %>
-            <%= hidden_field_tag "[content_items][#{item_counter}][provider_id]", @user.providers.find_by(provider_type: "vimeo").id %>
-            <div class="checkbox">
-            <%= label_tag :collab, "Collab:" %>
-            <%= check_box_tag "[content_items][#{item_counter}][collab]", true %>
-            <%= label_tag :feedback, "Feedback:" %>
-            <%= check_box_tag "[content_items][#{item_counter}][feedback]", true %>
-            <%= label_tag :latest, "Latest:" %>
-            <%= check_box_tag "[content_items][#{item_counter}][latest]", true %>
-            </div><br>
+              <%= hidden_field_tag "[content_items][#{item_counter}][title]", v["title"] %>
+              <%= hidden_field_tag "[content_items][#{item_counter}][media_id]", v["id"] %>
+              <%= hidden_field_tag "[content_items][#{item_counter}][user_id]", @user.id %>
+              <%= hidden_field_tag "[content_items][#{item_counter}][provider_id]", @user.providers.find_by(provider_type: "vimeo").id %>
+              <div class="checkbox">
+              <%= label_tag :collab, "Collab:" %>
+              <%= check_box_tag "[content_items][#{item_counter}][collab]", true %>
+              <%= label_tag :feedback, "Feedback:" %>
+              <%= check_box_tag "[content_items][#{item_counter}][feedback]", true %>
+              <%= label_tag :latest, "Latest:" %>
+              <%= check_box_tag "[content_items][#{item_counter}][latest]", true %>
+              </div><br>
+            </div>
 
             <% item_counter += 1 %>
 
@@ -73,25 +83,28 @@
 
         <% if @youtubes %>
           <% @youtubes.each do |v| %>
-            <%= check_box_tag "[content_items][#{item_counter}][content]", true %>
-            <%= label_tag :title, "Title:" %><%= v["title"] %><br>
-            <iframe id="ytplayer" type="text/html" width="500" height="350"
-          src="http://www.youtube.com/embed/<%= v["video_id"] %>"
-          frameborder="0"></iframe><br>
+              <div class="v-vids">
+                <div class="select">
+                  <%= check_box_tag "[content_items][#{item_counter}][content]", true %>
+                  <%= label_tag :title, "Title:" %><%= v["title"] %><br>
+                </div>
+              <iframe id="ytplayer" type="text/html" width="500" height="350"
+            src="http://www.youtube.com/embed/<%= v["video_id"] %>"
+            frameborder="0"></iframe><br>
 
-            <%= hidden_field_tag "[content_items][#{item_counter}][title]", v["title"] %>
-            <%= hidden_field_tag "[content_items][#{item_counter}][media_id]", v["video_id"] %>
-            <%= hidden_field_tag "[content_items][#{item_counter}][user_id]", @user.id %>
-            <%= hidden_field_tag "[content_items][#{item_counter}][provider_id]", @user.providers.find_by(provider_type: "google_oauth2").id %>
-            <div class="checkbox">
-            <%= label_tag :collab, "Collab:" %>
-            <%= check_box_tag "[content_items][#{item_counter}][collab]", true %>
-            <%= label_tag :feedback, "Feedback:" %>
-            <%= check_box_tag "[content_items][#{item_counter}][feedback]", true %>
-            <%= label_tag :latest, "Latest:" %>
-            <%= check_box_tag "[content_items][#{item_counter}][latest]", true %><
-            </div>br>
-
+              <%= hidden_field_tag "[content_items][#{item_counter}][title]", v["title"] %>
+              <%= hidden_field_tag "[content_items][#{item_counter}][media_id]", v["video_id"] %>
+              <%= hidden_field_tag "[content_items][#{item_counter}][user_id]", @user.id %>
+              <%= hidden_field_tag "[content_items][#{item_counter}][provider_id]", @user.providers.find_by(provider_type: "google_oauth2").id %>
+              <div class="checkbox">
+                <%= label_tag :collab, "Collab:" %>
+                <%= check_box_tag "[content_items][#{item_counter}][collab]", true %>
+                <%= label_tag :feedback, "Feedback:" %>
+                <%= check_box_tag "[content_items][#{item_counter}][feedback]", true %>
+                <%= label_tag :latest, "Latest:" %>
+                <%= check_box_tag "[content_items][#{item_counter}][latest]", true %>
+              </div>
+            </div>
             <% item_counter += 1 %>
 
           <% end %>
