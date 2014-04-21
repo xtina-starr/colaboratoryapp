@@ -1,9 +1,8 @@
 <html class= "header-background">
 <body>
-  <div class="background-container">
-    
-  
-    
+
+
+
   <div class="about-container">
       <div class="user-info">
 
@@ -25,7 +24,7 @@
       <h2> <%= @user.username %>'s content: </h2>
 
       <% item_counter = 0 %>
-    <div class="content-form">  
+    <div class="content-form">
       <%= form_tag(contents_path, method: "post") do %>
         <% if @tracks %>
           <% @tracks.each do |track| %>
