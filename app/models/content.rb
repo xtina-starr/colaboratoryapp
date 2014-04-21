@@ -5,7 +5,7 @@ class Content < ActiveRecord::Base
   def self.search_content(search_term)
     # User.includes(:contents).where("username LIKE :query OR name LIKE :query OR bio LIKE :query OR contents.title LIKE :query", query: "%#{search_term}%" )
 
-    Content.includes(:user).where("title LIKE :query OR users.username LIKE :query OR users.bio LIKE :query", query: "%#{search_term}%" )
+    Content.includes(:user).where("title ILIKE :query OR users.username ILIKE :query OR users.bio ILIKE :query", query: "%#{search_term.downcase}%" )
   end
 
   def self.collaboration
