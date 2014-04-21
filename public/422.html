@@ -4,16 +4,39 @@
   <title>The change you wanted was rejected (422)</title>
   <style>
   body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
+    background: url('http://thetickershow.com/wp-content/uploads/2011/09/collaborate.jpg')no-repeat center center fixed;
+    background-color: rgba(216,216,216,0.8) ;
+    text-align: left;
     font-family: arial, sans-serif;
   }
 
   div.dialog {
     width: 25em;
-    margin: 4em auto 0 auto;
-    border: 1px solid #CCC;
+    text-align: left;
+    text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+    background: rgb(240,240,240,0.2) ;
+    margin: auto auto auto 2em;
+    /*border: 1px solid #CCC;*/
+    padding: 0px 0 0 9em;
+  }
+
+  div.dialog2 {
+    width: 25em;
+    text-align: center;
+    margin: 25em auto auto auto;
+    /*border: 1px solid #CCC;*/
+    padding: 0em 0 0 1em;
     border-right-color: #999;
     border-left-color: #999;
     border-bottom-color: #BBB;
@@ -21,13 +44,25 @@
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
     background-color: white;
-    padding: 7px 4em 0 4em;
+    box-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
   }
 
   h1 {
-    font-size: 100%;
+    font-size: 800%;
     color: #730E15;
-    line-height: 1.5em;
+    padding: -2em;
+
   }
 
   body > p {
@@ -50,9 +85,11 @@
 <body>
   <!-- This file lives in public/422.html -->
   <div class="dialog">
-    <h1>The change you wanted was rejected.</h1>
-    <p>Maybe you tried to change something you didn't have access to.</p>
+    <h1>422</h1>
   </div>
-  <p>If you are the application owner check the logs for more information.</p>
+  <div class="dialog2"
+    <h1>The change you wanted was rejected. Maybe something stopped collaborating?</h1>
+    <p>Whoops! Maybe you tried to change something you didn't have access to. Possibly consider going back <a title="home" href="/"><img src="http://www.mpmodels.co.uk/images/home_icon-32x32_red.png" alt="home logo"/></a></p>
+  </div>
 </body>
 </html>
