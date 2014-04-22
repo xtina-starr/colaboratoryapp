@@ -9,7 +9,7 @@
         <img src="<%= @user.avatar %>">
         <div class="username">
           <h1><%= @user.username %></h1>
-          <p><%= link_to "edit profile", edit_user_path(current_user.id) %></p>
+          <p><%= link_to "edit profile", edit_user_path %></p>
         </div>
 
         <p><%= @user.location %> | <%= @user.website %></p><br>
