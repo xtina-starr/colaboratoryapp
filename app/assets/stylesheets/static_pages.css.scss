@@ -8,7 +8,11 @@ body.learnmore {
   background: image-url('brickwall.png');
   background-repeat: repeat;
   -webkit-backface-visibility: hidden;
+  font-family: "Lato";
+}
 
+div.background-container {
+  margin-top: 25px;
 }
 
 
@@ -313,6 +317,7 @@ h1.title{
 }
 
 .co-b {
+  font-family: "Lato";
   margin-left: .5em;
   outline: solid;
   outline-color: gray;
@@ -331,6 +336,7 @@ h1.title{
 }
 
 .lab-b {
+  font-family: "Lato";
   font-size: 2em;
   color: gray;
   text-align: center;
