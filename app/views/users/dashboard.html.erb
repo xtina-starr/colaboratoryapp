@@ -5,21 +5,21 @@
 
   <div class="about-container">
       <div class="user-info">
-        <h1><%= @user.username %></h1>
-        <img src="<%= @user.avatar %>">
-        <h5><%= roles(@user).join("/") %><h5>
+        <span><div class="username-edit"><h1><%= @user.username %></h1> <a href="/edit"> <%= image_tag("edit-24.png", class: "edit") %></a></div></span>
+        <div class="avatar">
+          <img src="<%= @user.avatar %>">
+          <h5><%= roles(@user).join("/") %><h5>
 
-        <p class="location"><%= @user.location %> | <%= @user.website %></p>
-        <p><%= link_to "edit profile", edit_user_path %></p>
+          <p class="location"><%= @user.location %> | <%= @user.website %></p>
 
-        <div class="bio">
-          <%= @user.bio %>
+          <div class="bio">
+            <%= @user.bio %>
+          </div>
         </div>
-
       </div>
 
       <div class="dashboard-content">
-        <h2> <%= @user.username %>'s content: </h2>
+        <h2>Add content to your profile</h2>
       </div>
 
       <% item_counter = 0 %>
@@ -29,8 +29,15 @@
           <% @tracks.each do |track| %>
             <div class="audio">
               <div class="select">
-                <%= check_box_tag "[content_items][#{item_counter}][content]", true %>
-                <%= label_tag :title, "Title:" %> <%= track[:title] %>
+                <div class="switch-container">
+                  <%= check_box_tag "[content_items][#{item_counter}][content]", true,
+                  false, {id: "switch-toggle-1", class: "switch-checkbox"} %>
+                  <label for="switch-toggle-1" class="switch-label" > 
+                    <div class="switch-inner"></div>
+                    <div class="switch-toggle-switch"></div>
+                  </label>
+                </div>
+                <p><%= track[:title] %></p>
               </div>
                 <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/<%= track["id"] %>" width="500" height="150" scrolling="no" frameborder="no"></iframe>
               
@@ -48,18 +55,25 @@
                 <%= check_box_tag "[content_items][#{item_counter}][latest]", true %>
               </div>
             <% item_counter += 1 %>
-            </div>
           <% end %>
         <% else %>
           <p>You don't have any content from soundcloud. Pull in content by clicking the link.</p>
         <% end %>
+          </div>
 
         <% if @videos %>
           <% @videos["videos"]["video"].each do |v| %>
             <div class="v-vids">
               <div class="select">
-                <%= check_box_tag "[content_items][#{item_counter}][content]", true %>
-                <%= label_tag :title, "Title:" %> <%= v["title"] %><br>
+                <div class="switch-container">
+                  <%= check_box_tag "[content_items][#{item_counter}][content]", true, false, {id: "switch-toggle-1", class: "switch-checkbox"} %>
+                <label for="switch-toggle-1" class="switch-label" >
+                  <div class="switch-inner"></div>
+                  <div class="switch-toggle-switch"></div>
+                </label>
+                </div>
+              
+              <p><%= v["title"] %></p>
               </div>
               <iframe src="//player.vimeo.com/video/<%= v["id"] %>
             " width="500" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><br>
@@ -112,12 +126,13 @@
             <% item_counter += 1 %>
 
           <% end %>
+        <% else %>
+          <p>You don't have any content from soundcloud. Pull in content by clicking the link.</p>
         <% end %>
 
         <div class="actions"><%= submit_tag "submit" %></div>
       <% end %>
-    <% else %>
-      <p>You don't have any content from soundcloud. Pull in content by clicking the link.</p>
+    
     </div>
 
       <h2>Link another service</h2>
