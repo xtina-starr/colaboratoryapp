@@ -6,9 +6,8 @@ Colaboratory::Application.routes.draw do
   get "/signup",     to: "static_pages#signup",     as: :signup
   get "/signin",     to: "static_pages#signin",     as: :signin
   root 'welcome#index'
-  get "users/index"
-  get "users/show"
-  get "users/update"
+  get "/edit",       to: "users#edit", as: :edit_user
+  
 
 
   get "profile", to: "users#dashboard", as: :dashboard
