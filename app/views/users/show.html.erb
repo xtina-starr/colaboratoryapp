@@ -1,12 +1,20 @@
 <div>
-<img src="<%= @user.avatar %>">
-<h1><%= @user.username %> </h1>
-<%= @user.location %> | <a href="<%= @user.website %>"><%= @user.website %><br></a>
-<h4><%= roles(@user).join("/") %><h4><br>
+  <div class="profile-userinfo">
+    <h1><%= @user.username %> </h1>
+    <div class="avatar">
+      <img src="<%= @user.avatar %>">
+  </div>
+    
+  <div class="roles">  
+    <h5><%= roles(@user).join("/") %><h5>
+    <p class="location"><%= @user.location %> | <a href="<%= @user.website %>"><%= @user.website %></a></p>
+  </div><br>
 
-Bio: <%= @user.bio %>
+  <div class="profile-bio">
+    Bio: <%= @user.bio %>
+  </div>  
 
-
+  </div>
 </div>
 
 <h2> <%= @user.username %>'s content: </h2>
