@@ -4,121 +4,110 @@
   <% end %>
 <% end %>
 
+
 <div class="container_profile">
 
   <h1 class="profile">Complete your profile</h1>
-<fieldset>
-<%= form_tag(@user, method: "put") do |f| %>
-  <div>
-    <%= label_tag :name, "Name:" %>
-    <%= text_field_tag :name, @user.name %>
-  </div>
+  
+  <%= form_tag(@user, method: "put") do |f| %>
+    <fieldset>
+      <div>
+        <%= label_tag :name, "Name:" %>
+        <%= text_field_tag :name, @user.name %>
+      </div>
 
-  <div>
-    <%= label_tag :username, "Username:" %>
-    <%= text_field_tag :username, @user.username %>
-  </div>
+      <div>
+        <%= label_tag :username, "Username:" %>
+        <%= text_field_tag :username, @user.username %>
+      </div>
 
-  <div>
-    <%= label_tag :email, "Email:" %>
-    <%= text_field_tag :email, @user.email %>
-  </div>
+      <div>
+        <%= label_tag :email, "Email:" %>
+        <%= text_field_tag :email, @user.email %>
+      </div>
 
-  <div>
-    <%= label_tag :location, "Location:" %>
-    <%= text_field_tag :location, @user.location %>
-  </div>
+      <div>
+        <%= label_tag :location, "Location:" %>
+        <%= text_field_tag :location, @user.location %>
+      </div>
 
-  <div>
-    <%= label_tag :website, "Website:" %>
-    <%= text_field_tag :website, @user.website %>
-  </div>
+      <div>
+        <%= label_tag :website, "Website:" %>
+        <%= text_field_tag :website, @user.website %>
+      </div>
 
-  <div>
-    <%= label_tag :bio, "Bio:" %>
-    <%= text_area_tag :bio, @user.bio %>
-  </div>
-</fieldset>
-<fieldset>
-  <div>
-    <p>So you're a creator, tell us more. Check the following that apply</p>
-    <div class="role-container">
-      <div class="row-1">
-        <div class="role">
-          <%= label_tag :dj %>
-          <%= check_box_tag :dj, true, @user.dj %>
-        </div>
+      <div>
+        <%= label_tag :bio, "Bio:" %>
+        <%= text_area_tag :bio, @user.bio %>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <div>
+        <p>So you're a creator, tell us more. Check the following that apply</p>
+        <div class="role-container">
+          <div class="row-1">
+            <div class="role">
+              <%= label_tag :dj %>
+              <%= check_box_tag :dj, true, @user.dj %>
+            </div>
       
-        <div class="role">
-          <%= label_tag :producer %>
-          <%= check_box_tag :producer, true, @user.producer %>
-        </div>
-      
-        <div class="role">
-          <%= label_tag :rapper %>
-          <%= check_box_tag :rapper, true, @user.rapper %>
+            <div class="role">
+              <%= label_tag :producer %>
+              <%= check_box_tag :producer, true, @user.producer %>
+            </div>
+          
+            <div class="role">
+              <%= label_tag :rapper %>
+              <%= check_box_tag :rapper, true, @user.rapper %>
+            </div>
+
+            <div class="role">
+              <%= label_tag :singer %>
+              <%= check_box_tag :singer, true, @user.singer %>
+            </div>
+          </div>
+
+          <div class="row-2">  
+            <div class="role">
+              <%= label_tag :songwriter %>
+              <%= check_box_tag :songwriter, true, @user.songwriter %>
+            </div>
+
+            <div class="role">
+              <%= label_tag :musician %>
+              <%= check_box_tag :musician, true, @user.musician %>
+            </div>
+
+            <div class="role">
+              <%= label_tag :animator %>
+              <%= check_box_tag :animator, true, @user.animator %>
+            </div>
+          </div>
+
+          <div class"row-3">
+            <div class="role">
+              <%= label_tag :filmmaker %>
+              <%= check_box_tag :filmmaker, true, @user.filmmaker %>
+            </div>
+
+            <div class="role">
+              <%= label_tag :videographer %>
+              <%= check_box_tag :videographer, true, @user.videographer %>
+            </div>
+
+            <div class="role">
+              <%= label_tag :editor %>
+              <%= check_box_tag :editor, true, @user.editor %>
+            </div>
+          </div>
+
         </div>
 
-        <div class="role">
-          <%= label_tag :singer %>
-          <%= check_box_tag :singer, true, @user.singer %>
-        </div>
+        <%= hidden_field_tag :id, @user.id %>
       </div>
-
-      <div class="row-2">  
-        <div class="role">
-          <%= label_tag :songwriter %>
-          <%= check_box_tag :songwriter, true, @user.songwriter %>
-        </div>
-
-        <div class="role">
-          <%= label_tag :musician %>
-          <%= check_box_tag :musician, true, @user.musician %>
-        </div>
-
-        <div class="role">
-          <%= label_tag :animator %>
-          <%= check_box_tag :animator, true, @user.animator %>
-        </div>
-      </div>
-
-      <div class"row-3">
-        <div class="role">
-          <%= label_tag :filmmaker %>
-          <%= check_box_tag :filmmaker, true, @user.filmmaker %>
-        </div>
-
-        <div class="role">
-          <%= label_tag :videographer %>
-          <%= check_box_tag :videographer, true, @user.videographer %>
-        </div>
-
-        <div class="role">
-          <%= label_tag :editor %>
-          <%= check_box_tag :editor, true, @user.editor %>
-        </div>
-      </div>
-
-      <div class"row-4">
-      </div>
-    </div>
-
-    <%= hidden_field_tag :id, @user.id %>
-  </div>
-</fieldset>
-
-<!--   <div class="field">
-    <%#= label_tag :user_name %>
-    <%#= text_field_tag :user_name %>
-  </div>
-  <div class="field">
-    <%#= label_tag :password %>
-    <%#= password_field_tag :password %>
-  </div>
-  <div class="field">
-    <%#= label_tag :password_confirmation %>
-    <%#= password_field :password_confirmation %>
-  </div> -->
-  <div class="actions"><%= submit_tag "submit" %></div>
-<% end %>
+    </fieldset>
+    <div class="actions"><%= submit_tag "submit" %></div>
+  <% end %>
 </div>
+
