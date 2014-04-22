@@ -1,9 +1,9 @@
-<div>
+<div class="profile-wrapper">
   <div class="profile-userinfo">
     <h1><%= @user.username %> </h1>
     <div class="avatar">
       <img src="<%= @user.avatar %>">
-  </div>
+    </div>
     
   <div class="roles">  
     <h5><%= roles(@user).join("/") %><h5>
@@ -15,13 +15,13 @@
   </div>  
 
   </div>
-</div>
 
-<h2> <%= @user.username %>'s content: </h2>
+
+  <h2> <%= @user.username %>'s content: </h2>
   <div class="all-content">
-  <% @contents.each do |content| %>
-    <%= render "#{content.provider.provider_type}_content", content: content %>
-  <% end %>
+    <% @contents.each do |content| %>
+      <%= render "#{content.provider.provider_type}_content", content: content %>
+    <% end %>
   </div>
 
-
+</div>
