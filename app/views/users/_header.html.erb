@@ -1,5 +1,32 @@
-<h1 class="title"> <span class="co-b">Co</span>  &nbsp; <span class="lab-b">Laboratory</span> </h1>
-<header class="navigation">
+<h1 class="title">
+  <span class="co-b">Co</span>  &nbsp;
+  <span class="lab-b">Laboratory</span>
+  <div id="wrap">
+    <%= form_tag(search_path, method: "get") do %>
+      <%= label_tag(:search, "") %>
+      <%= text_field_tag(:search) %>
+      <%= submit_tag("Go") %>
+    <% end %>
+    <form action="" autocomplete="on">
+   <!--  <input id="search" name="search" type="text" placeholder="What're we looking for ?"><input id="search_submit" value="Rechercher" type="submit"> -->
+    </form>
+  </div>
+</h1>
+<span class= "title-sub">
+  <a href="/">EXPLORE</a> |
+  <a href="/">PROFILE</a>
+</span>
+
+
+<!-- <a href="/" class="tooltip-item">
+  <div class="tooltip">
+    <div class="navigation-search-bar">
+
+    </div>
+  </div>
+</a> -->
+
+<!-- <header class="navigation">
   <div class="menu-wrapper">
     <a href="javascript:void(0)" class="logo">
       <img src="https://raw.github.com/Magnus-G/Random/master/placeholder_logo_1.png" alt="">
@@ -8,20 +35,20 @@
     <div class="nav">
       <ul id="navigation-menu">
         <li><a href="/">Home</a></li>
-        <li><a href="/profile">Dashboard</a></li>
+        <li><a href="/profile">Dashboard</a></li> -->
         <!-- <li><a href="javascript:void(0)">Contact</a></li> -->
-        <li class="navigation-search-bar">
-                <%= form_tag(search_path, method: "get") do %>
-                  <%= label_tag(:search, "search:") %>
-                  <%= text_field_tag(:search) %>
-                  <%= submit_tag("Go") %>
-                <% end %>
+        <!-- <li class="navigation-search-bar">
+                <%#= form_tag(search_path, method: "get") do %>
+                  <%#= label_tag(:search, "search:") %>
+                  <%#= text_field_tag(:search) %>
+                  <%#= submit_tag("Go") %>
+                <%# end %>
         </li>
         <li class="sign-up"><a href="/signout">Sign Out</a></li>
       </ul>
     </div>
   </div>
-</header>
+</header> -->
 
 <script>
   $(function() {
