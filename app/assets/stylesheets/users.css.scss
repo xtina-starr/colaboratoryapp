@@ -287,7 +287,7 @@ div.select label {
 }
 
 div.select {
-
+  display: block;
 }
 
 div.username h1, div.username p {
@@ -304,6 +304,7 @@ div.username h1, div.username p {
 
 div.bio {
   @include ellipsis(50%);
+  text-align: justify;
 }
 
 div.role-container {
@@ -333,3 +334,54 @@ div.role label {
   display: inline;
 }
 
+div.user-info img {
+  margin: 20px auto;
+  width: 150px;
+  height: 150px;
+  background: red;
+  -moz-border-radius: 75px;
+  -webkit-border-radius: 75px;
+  border-radius: 75px;
+}
+
+div.user-info h1 {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+div.user-info h5 {
+  font-weight: normal;
+}
+
+div.user-info p.location {
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+div.user-info {
+  text-align: center;
+  margin: 15px;
+}
+
+div.audio {
+  text-align: center;
+  margin: 30px auto;
+  width: 500px;
+}
+
+div.bio p {
+  font-weight: 400;
+}
+
+div.v-vids {
+  text-align: center;
+  margin: 30px auto;
+}
+
+div.y-vids {
+  text-align: center;
+  margin: 30px auto;
+}
+
+div.dashboard-content {
+  text-align: center;
+}
