@@ -315,7 +315,7 @@ div.username h1, div.username p {
 }
 
 div.bio {
-  @include ellipsis(50%);
+  @include ellipsis(700px);
   text-align: justify;
 }
 
@@ -445,6 +445,7 @@ div.username-edit {
 
 div.user-info h1 {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 50px;
 }
 
 div.user-info h5 {
@@ -562,4 +563,47 @@ div.dashboard-content {
       box-shadow: 0 0 1px 2px rgba(0,0,0,0.1);
     }
   }
+}
+
+div.profile-wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+div.profile-wrapper h2 {
+  text-align: center;
+}
+
+div.profile-userinfo {
+  text-align: center;
+  margin: 50px auto;
+}
+
+div.profile-userinfo h1 {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 50px;
+}
+
+div.profile-userinfo div.avatar {
+    margin: 20px auto;
+    width: 150px;
+    height: 150px;
+    -moz-border-radius: 75px;
+    -webkit-border-radius: 75px;
+    border-radius: 75px;
+}
+
+div.profile-userinfo div.roles {
+  margin-top: 50px; 
+}
+
+div.profile-bio {
+  width: 700px;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+div.profile-userinfo p.location {
+  font-size: 16px;
+  font-weight: lighter;
 }
