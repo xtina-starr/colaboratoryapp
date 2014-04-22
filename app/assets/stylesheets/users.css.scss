@@ -383,6 +383,32 @@ input[type="submit"] {
   opacity: 0.4;
   cursor: pointer;
   transition: opacity .4s ease;
+=======
+div.role-container {
+}
+
+  .row-1 {
+    @include span-columns(3);
+    width:200px;
+  }
+
+  .row-2 {
+    @include span-columns(3);
+    width: 200px;
+  }
+
+  .row-3 {
+    @include span-columns(3);
+    width: 200px;
+  }
+
+  .row-4 {
+    @include span-columns(4);
+    with: 200px;
+  }
+
+div.role label {
+  display: inline;
 }
 
 input[type="submit"]:hover {
