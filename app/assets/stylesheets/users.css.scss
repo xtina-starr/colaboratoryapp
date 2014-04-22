@@ -4,7 +4,6 @@
 
 .container_profile {
   @include outer-container;
-  @include span-columns(5);
   @include shift(1);
   width: 80%;
   position: inherit;
