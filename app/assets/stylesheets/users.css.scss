@@ -320,7 +320,6 @@ div.username h1, div.username p {
 }
 
 div.bio {
-  @include ellipsis(700px);
   text-align: justify;
 }
 
@@ -617,6 +616,10 @@ div.profile-userinfo div.avatar {
     border-radius: 75px;
 }
 
+div.profile-userinfo h5 {
+  font-weight: normal;
+}
+
 div.profile-userinfo div.roles {
   margin-top: 50px; 
 }
@@ -630,6 +633,10 @@ div.profile-bio {
 div.profile-userinfo p.location {
   font-size: 16px;
   font-weight: lighter;
+}
+
+div.profile-userinfo a {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 div.link-account {

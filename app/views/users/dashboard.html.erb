@@ -67,13 +67,14 @@
                 <%= label_tag :latest, "To show latest work:" %>
                 <%= check_box_tag "[content_items][#{item_counter}][latest]", true %>
               </div>
+            </div>
             <% item_counter += 1 %>
           <% end %>
         <% else %>
           <h4 class="type-of-content">Soundcloud</h4>
           <p class="link-content">You don't have any content from Soundcloud. Click <%= link_to("Soundcloud", "/auth/soundcloud") %> to pull in content.</p>
         <% end %>
-          </div>
+          
 
         <% if @videos %>
           <h4 class="type-of-content">Vimeo</h4>
