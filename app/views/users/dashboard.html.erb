@@ -69,7 +69,8 @@
             <% item_counter += 1 %>
           <% end %>
         <% else %>
-          <p class="link-content">You don't have any content from Soundcloud. Pull in content by clicking the link.</p>
+          <h4 class="type-of-content">Soundcloud</h4>
+          <p class="link-content">You don't have any content from Soundcloud. Click <%= link_to("Soundcloud", "/auth/soundcloud") %> to pull in content.</p>
         <% end %>
           </div>
 
@@ -81,10 +82,6 @@
                 <div class="switch-container">
                   <%= check_box_tag "[content_items][#{item_counter}][content]", true, false, {id: "switch-toggle-#{item_counter}", class: "switch-checkbox"} %>
                 <label for="switch-toggle-<%= item_counter %>" class="switch-label" >
-                  <!-- <div class="show-or-hide">
-                    <p>select</p>
-                    <p>hide</p>
-                  </div> -->
                   <div class="switch-inner"></div>
                   <div class="switch-toggle-switch"></div>
                 </label>
@@ -114,7 +111,8 @@
 
           <% end %>
         <% else %>
-          <p class="link-content">You don't have any content from Vimeo. Pull in content by clicking the link.</p>
+          <h4 class="type-of-content">Vimeo</h4>
+          <p class="link-content">You don't have any content from Vimeo. Click <%= link_to("Vimeo", "/auth/vimeo") %> to pull in content.</p>
         <% end %>
 
         <% if @youtubes %>
@@ -152,7 +150,8 @@
 
           <% end %>
         <% else %>
-          <p class="link-content">You don't have any content from Youtube. Pull in content by clicking the link.</p>
+          <h4 class="type-of-content">Youtube</h4>
+          <p class="link-content">You don't have any content from Youtube. Click <%= link_to("Youtube", "/auth/google_oauth2") %> to pull in content.</p>
         <% end %>
 
         <div class="actions"><%= submit_tag "submit" %></div>
