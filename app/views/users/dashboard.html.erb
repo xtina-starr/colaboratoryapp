@@ -7,7 +7,7 @@
       <div class="user-info">
         <span><div class="username-edit"><h1><%= @user.username %></h1> <a href="/edit"> <%= image_tag("edit-24.png", class: "edit") %></a></div></span>
         <div class="avatar">
-          <img src="<%= @user.avatar %>">
+          <img src="<%= @user.avatar_with_default %>">
           <h5><%= roles(@user).join("/") %><h5>
 
           <p class="location"><%= @user.location %> | <%= @user.website %></p>
