@@ -21,7 +21,7 @@
 
       <div class="dashboard-content">
         <h2>Add content to your profile</h2>
-        <p>You can add content to your dashboard with <%= link_to("Soundcloud", "/auth/soundcloud") %>, <%= link_to("Vimeo", "/auth/vimeo") %>, and <%= link_to("Youtube", "/auth/google_oauth2") %>. Select and tag the content you want save then hit submit.</p>
+        <p>You can add content to your dashboard with <%= link_to("Soundcloud", "/auth/soundcloud") %>, <%= link_to("Vimeo", "/auth/vimeo") %>, and <%= link_to("Youtube", "/auth/google_oauth2") %>. Select and tag the content you want save then hit submit to add to your profile.</p>
 
         <!-- <div class="link-accounts">
           <h3>Link another service</h3>
@@ -58,12 +58,13 @@
               <%= hidden_field_tag "[content_items][#{item_counter}][media_id]", track["id"] %>
               <%= hidden_field_tag "[content_items][#{item_counter}][user_id]", @user.id %>
               <%= hidden_field_tag "[content_items][#{item_counter}][provider_id]", @user.providers.find_by(provider_type: "soundcloud").id %>
+                <p>What are you looking for?</p>
               <div class="checkbox">
-                <%= label_tag :collab, "Collab:" %>
+                <%= label_tag :collab, "Collaborators:" %>
                 <%= check_box_tag "[content_items][#{item_counter}][collab]", true %>
                 <%= label_tag :feedback, "Feedback:" %>
                 <%= check_box_tag "[content_items][#{item_counter}][feedback]", true %>
-                <%= label_tag :latest, "Latest:" %>
+                <%= label_tag :latest, "To show latest work:" %>
                 <%= check_box_tag "[content_items][#{item_counter}][latest]", true %>
               </div>
             <% item_counter += 1 %>
@@ -96,12 +97,13 @@
               <%= hidden_field_tag "[content_items][#{item_counter}][media_id]", v["id"] %>
               <%= hidden_field_tag "[content_items][#{item_counter}][user_id]", @user.id %>
               <%= hidden_field_tag "[content_items][#{item_counter}][provider_id]", @user.providers.find_by(provider_type: "vimeo").id %>
+              <p>What are you looking for?</p>
               <div class="checkbox">
-              <%= label_tag :collab, "Collab:" %>
+              <%= label_tag :collab, "Collaborators:" %>
               <%= check_box_tag "[content_items][#{item_counter}][collab]", true %>
               <%= label_tag :feedback, "Feedback:" %>
               <%= check_box_tag "[content_items][#{item_counter}][feedback]", true %>
-              <%= label_tag :latest, "Latest:" %>
+              <%= label_tag :latest, "To show latest work:" %>
               <%= check_box_tag "[content_items][#{item_counter}][latest]", true %>
               </div>
 
@@ -137,12 +139,13 @@
               <%= hidden_field_tag "[content_items][#{item_counter}][media_id]", v["video_id"] %>
               <%= hidden_field_tag "[content_items][#{item_counter}][user_id]", @user.id %>
               <%= hidden_field_tag "[content_items][#{item_counter}][provider_id]", @user.providers.find_by(provider_type: "google_oauth2").id %>
+              <p>What are you looking for?</p>
               <div class="checkbox">
-                <%= label_tag :collab, "Collab:" %>
+                <%= label_tag :collab, "Collaborators:" %>
                 <%= check_box_tag "[content_items][#{item_counter}][collab]", true %>
                 <%= label_tag :feedback, "Feedback:" %>
                 <%= check_box_tag "[content_items][#{item_counter}][feedback]", true %>
-                <%= label_tag :latest, "Latest:" %>
+                <%= label_tag :latest, "To show latest work:" %>
                 <%= check_box_tag "[content_items][#{item_counter}][latest]", true %>
               </div>
             </div>
