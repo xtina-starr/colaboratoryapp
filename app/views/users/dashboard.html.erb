@@ -2,37 +2,49 @@
 <body>
 
 
-
   <div class="about-container">
       <div class="user-info">
-        <span><div class="username-edit"><h1><%= @user.username %></h1> <a href="/edit"> <%= image_tag("edit-24.png", class: "edit") %></a></div></span>
-        <div class="avatar">
-          <img src="<%= @user.avatar_with_default %>">
-          <h5><%= roles(@user).join("/") %><h5>
+        <div class="dash-border">
+          <span><div class="username-edit"><h1><%= @user.username %></h1> <a href="/edit"> <%= image_tag("edit-24.png", class: "edit") %></a></div></span>
+          <div class="avatar">
+            <img src="<%= @user.avatar_with_default %>">
+            <h5><%= roles(@user).join("/") %><h5>
 
-          <p class="location"><%= @user.location %> | <%= @user.website %></p>
+            <p class="location"><%= @user.location %> | <%= @user.website %></p>
 
-          <div class="bio">
-            <%= @user.bio %>
+            <div class="bio">
+              <%= @user.bio %>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="dashboard-content">
         <h2>Add content to your profile</h2>
+        <p>You can add content to your dashboard with <%= link_to("Soundcloud", "/auth/soundcloud") %>, <%= link_to("Vimeo", "/auth/vimeo") %>, and <%= link_to("Youtube", "/auth/google_oauth2") %>. Select and tag the content you want save then hit submit to add to your profile.</p>
+
+        <!-- <div class="link-accounts">
+          <h3>Link another service</h3>
+          <%#= link_to("Vimeo", "/auth/vimeo") %>
+          <%#= link_to("Soundcloud", "/auth/soundcloud") %>
+          <%#= link_to("Youtube", "/auth/google_oauth2") %>
+        </div> -->
       </div>
+
+      
 
       <% item_counter = 0 %>
     <div class="content-form">
       <%= form_tag(contents_path, method: "post") do %>
         <% if @tracks %>
+          <h4 class="type-of-content">Soundcloud</h4>
           <% @tracks.each do |track| %>
             <div class="audio">
               <div class="select">
                 <div class="switch-container">
                   <%= check_box_tag "[content_items][#{item_counter}][content]", true,
-                  false, {id: "switch-toggle-1", class: "switch-checkbox"} %>
-                  <label for="switch-toggle-1" class="switch-label" > 
+                  false, {id: "switch-toggle-#{item_counter}", class: "switch-checkbox"} %>
+                  <label for="switch-toggle-<%= item_counter %>" class="switch-label" > 
                     <div class="switch-inner"></div>
                     <div class="switch-toggle-switch"></div>
                   </label>
@@ -46,28 +58,31 @@
               <%= hidden_field_tag "[content_items][#{item_counter}][media_id]", track["id"] %>
               <%= hidden_field_tag "[content_items][#{item_counter}][user_id]", @user.id %>
               <%= hidden_field_tag "[content_items][#{item_counter}][provider_id]", @user.providers.find_by(provider_type: "soundcloud").id %>
+                <p>What are you looking for?</p>
               <div class="checkbox">
-                <%= label_tag :collab, "Collab:" %>
+                <%= label_tag :collab, "Collaborators:" %>
                 <%= check_box_tag "[content_items][#{item_counter}][collab]", true %>
                 <%= label_tag :feedback, "Feedback:" %>
                 <%= check_box_tag "[content_items][#{item_counter}][feedback]", true %>
-                <%= label_tag :latest, "Latest:" %>
+                <%= label_tag :latest, "To show latest work:" %>
                 <%= check_box_tag "[content_items][#{item_counter}][latest]", true %>
               </div>
             <% item_counter += 1 %>
           <% end %>
         <% else %>
-          <p class="link-content">You don't have any content from Soundcloud. Pull in content by clicking the link.</p>
+          <h4 class="type-of-content">Soundcloud</h4>
+          <p class="link-content">You don't have any content from Soundcloud. Click <%= link_to("Soundcloud", "/auth/soundcloud") %> to pull in content.</p>
         <% end %>
           </div>
 
         <% if @videos %>
+          <h4 class="type-of-content">Vimeo</h4>
           <% @videos["videos"]["video"].each do |v| %>
             <div class="v-vids">
               <div class="select">
                 <div class="switch-container">
-                  <%= check_box_tag "[content_items][#{item_counter}][content]", true, false, {id: "switch-toggle-1", class: "switch-checkbox"} %>
-                <label for="switch-toggle-1" class="switch-label" >
+                  <%= check_box_tag "[content_items][#{item_counter}][content]", true, false, {id: "switch-toggle-#{item_counter}", class: "switch-checkbox"} %>
+                <label for="switch-toggle-<%= item_counter %>" class="switch-label" >
                   <div class="switch-inner"></div>
                   <div class="switch-toggle-switch"></div>
                 </label>
@@ -82,12 +97,13 @@
               <%= hidden_field_tag "[content_items][#{item_counter}][media_id]", v["id"] %>
               <%= hidden_field_tag "[content_items][#{item_counter}][user_id]", @user.id %>
               <%= hidden_field_tag "[content_items][#{item_counter}][provider_id]", @user.providers.find_by(provider_type: "vimeo").id %>
+              <p>What are you looking for?</p>
               <div class="checkbox">
-              <%= label_tag :collab, "Collab:" %>
+              <%= label_tag :collab, "Collaborators:" %>
               <%= check_box_tag "[content_items][#{item_counter}][collab]", true %>
               <%= label_tag :feedback, "Feedback:" %>
               <%= check_box_tag "[content_items][#{item_counter}][feedback]", true %>
-              <%= label_tag :latest, "Latest:" %>
+              <%= label_tag :latest, "To show latest work:" %>
               <%= check_box_tag "[content_items][#{item_counter}][latest]", true %>
               </div>
 
@@ -97,16 +113,18 @@
 
           <% end %>
         <% else %>
-          <p class="link-content">You don't have any content from Vimeo. Pull in content by clicking the link.</p>
+          <h4 class="type-of-content">Vimeo</h4>
+          <p class="link-content">You don't have any content from Vimeo. Click <%= link_to("Vimeo", "/auth/vimeo") %> to pull in content.</p>
         <% end %>
 
         <% if @youtubes %>
+          <h4 class="type-of-content">Youtube</h4>
           <% @youtubes.each do |v| %>
               <div class="y-vids">
                 <div class="select">
                   <div class="switch-container">
-                    <%= check_box_tag "[content_items][#{item_counter}][content]", true, false, {id: "switch-toggle-1", class: "switch-checkbox"} %>
-                    <label for="switch-toggle-1" class="switch-label" >
+                    <%= check_box_tag "[content_items][#{item_counter}][content]", true, false, {id: "switch-toggle-#{item_counter}", class: "switch-checkbox"} %>
+                    <label for="switch-toggle-<%= item_counter %>" class="switch-label" >
                       <div class="switch-inner"></div>
                       <div class="switch-toggle-switch"></div>
                     </label>
@@ -121,12 +139,13 @@
               <%= hidden_field_tag "[content_items][#{item_counter}][media_id]", v["video_id"] %>
               <%= hidden_field_tag "[content_items][#{item_counter}][user_id]", @user.id %>
               <%= hidden_field_tag "[content_items][#{item_counter}][provider_id]", @user.providers.find_by(provider_type: "google_oauth2").id %>
+              <p>What are you looking for?</p>
               <div class="checkbox">
-                <%= label_tag :collab, "Collab:" %>
+                <%= label_tag :collab, "Collaborators:" %>
                 <%= check_box_tag "[content_items][#{item_counter}][collab]", true %>
                 <%= label_tag :feedback, "Feedback:" %>
                 <%= check_box_tag "[content_items][#{item_counter}][feedback]", true %>
-                <%= label_tag :latest, "Latest:" %>
+                <%= label_tag :latest, "To show latest work:" %>
                 <%= check_box_tag "[content_items][#{item_counter}][latest]", true %>
               </div>
             </div>
@@ -134,7 +153,8 @@
 
           <% end %>
         <% else %>
-          <p class="link-content">You don't have any content from Youtube. Pull in content by clicking the link.</p>
+          <h4 class="type-of-content">Youtube</h4>
+          <p class="link-content">You don't have any content from Youtube. Click <%= link_to("Youtube", "/auth/google_oauth2") %> to pull in content.</p>
         <% end %>
 
         <div class="actions"><%= submit_tag "submit" %></div>
@@ -142,10 +162,6 @@
     
     </div>
 
-      <h2>Link another service</h2>
-      <%= link_to("Vimeo", "/auth/vimeo") %>
-      <%= link_to("Soundcloud", "/auth/soundcloud") %>
-      <%= link_to("Youtube", "/auth/google_oauth2") %>
     </div>
   </div>
   </body>
