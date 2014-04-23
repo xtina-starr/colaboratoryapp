@@ -216,6 +216,11 @@ h1.profile {
 }*/
 div.content-form {
   margin: 0 auto;
+  width: 700px;
+}
+
+div.content-form h4.type-of-content {
+  font-weight: normal;
 }
 
 div.checkbox {
@@ -462,9 +467,16 @@ div.user-info {
   margin: 0px 15px 50px 15px;
 }
 
+div.dash-border {
+  width: 780px;
+  border-bottom: 1px dashed #444;
+  margin: 0px auto 20px auto;
+  padding-bottom: 40px;
+}
+
 div.audio {
   text-align: center;
-  margin: 30px auto;
+  margin: 10px auto 30px auto;
   width: 700px;
   border: 1px solid #444;
   height: 300px;
@@ -477,7 +489,7 @@ div.bio p {
 
 div.v-vids {
   text-align: center;
-  margin: 30px auto;
+  margin: 10px auto 30px auto;
   border: 1px solid #444;
   width: 700px;
   height: 480px;
@@ -486,7 +498,7 @@ div.v-vids {
 
 div.y-vids {
   text-align: center;
-  margin: 30px auto;
+  margin: 10px auto 30px auto;
   border: 1px solid #444;
   width: 700px;
   height: 480px;
@@ -494,6 +506,12 @@ div.y-vids {
 }
 
 div.dashboard-content {
+  margin: 0 auto 40px auto;
+  text-align: justify;
+  width: 700px;
+}
+
+div.dashboard-content h2 {
   text-align: center;
 }
 
@@ -527,6 +545,10 @@ div.dashboard-content {
     cursor: pointer;
     display: block;
     overflow: hidden;
+    font-size: 12px;
+    font-family: "Lato";
+    color: white;
+    text-align: center;
 
     .switch-inner {
       @include transition(opacity 0.3s ease);
@@ -538,16 +560,17 @@ div.dashboard-content {
         float: left;
         height: $switch-height;
         padding: 0;
+        padding-left: 10px;
         width: 50%;
       }
 
       &:before {
-        content: '';
+        content: 'saved';
         background: $blue;
       }
 
       &:after {
-        content: '';
+        content: 'add';
         background: #DDD;
       }
     }
@@ -560,6 +583,7 @@ div.dashboard-content {
       border-radius: $switch-radius / 2;
       margin: $switch-inner-margin;
       background: white;
+      right: 5.2em;
       box-shadow: 0 0 1px 2px rgba(0,0,0,0.1);
     }
   }
@@ -606,6 +630,10 @@ div.profile-bio {
 div.profile-userinfo p.location {
   font-size: 16px;
   font-weight: lighter;
+}
+
+div.link-account {
+
 }
 
 p.link-content {
