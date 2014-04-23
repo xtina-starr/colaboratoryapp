@@ -83,10 +83,10 @@
               <div class="select">
                 <div class="switch-container">
                   <%= check_box_tag "[content_items][#{item_counter}][content]", true, false, {id: "switch-toggle-#{item_counter}", class: "switch-checkbox"} %>
-                <label for="switch-toggle-<%= item_counter %>" class="switch-label" >
-                  <div class="switch-inner"></div>
-                  <div class="switch-toggle-switch"></div>
-                </label>
+                  <label for="switch-toggle-<%= item_counter %>" class="switch-label" >
+                    <div class="switch-inner"></div>
+                    <div class="switch-toggle-switch"></div>
+                  </label>
                 </div>
 
               <p><%= v["title"] %></p>
@@ -100,12 +100,12 @@
               <%= hidden_field_tag "[content_items][#{item_counter}][provider_id]", @user.providers.find_by(provider_type: "vimeo").id %>
               <p>What are you looking for?</p>
               <div class="checkbox">
-              <%= label_tag :collab, "Collaborators:" %>
-              <%= check_box_tag "[content_items][#{item_counter}][collab]", true %>
-              <%= label_tag :feedback, "Feedback:" %>
-              <%= check_box_tag "[content_items][#{item_counter}][feedback]", true %>
-              <%= label_tag :latest, "To show latest work:" %>
-              <%= check_box_tag "[content_items][#{item_counter}][latest]", true %>
+                <%= label_tag :collab, "Collaborators:" %>
+                <%= check_box_tag "[content_items][#{item_counter}][collab]", true %>
+                <%= label_tag :feedback, "Feedback:" %>
+                <%= check_box_tag "[content_items][#{item_counter}][feedback]", true %>
+                <%= label_tag :latest, "To show latest work:" %>
+                <%= check_box_tag "[content_items][#{item_counter}][latest]", true %>
               </div>
 
             </div>
@@ -146,7 +146,7 @@
                 <%= check_box_tag "[content_items][#{item_counter}][collab]", true %>
                 <%= label_tag :feedback, "Feedback:" %>
                 <%= check_box_tag "[content_items][#{item_counter}][feedback]", true %>
-                <%= label_tag :latest, "To show latest work:" %>
+                <%= label_tag :latest, "To show latest:" %>
                 <%= check_box_tag "[content_items][#{item_counter}][latest]", true %>
               </div>
             </div>
@@ -162,7 +162,6 @@
       <% end %>
 
     </div>
-
     </div>
   </div>
   </body>

@@ -1,3 +1,6 @@
+<div class="collabs-feedback-latest">
+  <%= link_to "Collaborate", collaboration_path %> | <%= link_to "Feedback", feedback_path %> | <%= link_to "Latest", latest_path %>
+</div>
 <div class="all-content">
   <% @contents.each do |content| %>
     <%= render "users/#{content.provider.provider_type}_content", content: content %>

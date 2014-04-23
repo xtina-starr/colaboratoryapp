@@ -4,16 +4,16 @@
   <% case @content.provider.provider_type %>
     <% when "soundcloud" %>
       <div class="content-show">
-        <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/<%= @content.media_id %>" width="500" height="150" scrolling="no" frameborder="no"></iframe>
+        <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/<%= @content.media_id %>" width="700" height="150" scrolling="no" frameborder="no"></iframe>
       </div>
     <% when "vimeo" %>
       <div class="content-show">
         <iframe src="//player.vimeo.com/video/<%= @content.media_id %>
-        " width="500" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        " width="700" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
       </div>
     <% when "google_oauth2" %>
       <div class="content-show">
-        <iframe id="ytplayer" type="text/html" width="500" height="350"
+        <iframe id="ytplayer" type="text/html" width="700" height="350"
         src="http://www.youtube.com/embed/<%= @content.media_id %>"
         frameborder="0"></iframe>
       </div>
