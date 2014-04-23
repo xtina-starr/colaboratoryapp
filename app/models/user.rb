@@ -12,5 +12,13 @@ class User < ActiveRecord::Base
       avatar: auth_hash['info']['image']
       )
   end
+
+  def avatar_with_default
+    if self.avatar
+      self.avatar
+    else
+      "https://i1.wp.com/i.vimeocdn.com/portrait/default-red_300x300.png?ssl=1"
+    end
+  end
   
 end
