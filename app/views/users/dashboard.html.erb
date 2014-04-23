@@ -31,7 +31,7 @@
         </div> -->
       </div>
 
-      
+
 
       <% item_counter = 0 %>
     <div class="content-form">
@@ -44,7 +44,7 @@
                 <div class="switch-container">
                   <%= check_box_tag "[content_items][#{item_counter}][content]", true,
                   false, {id: "switch-toggle-#{item_counter}", class: "switch-checkbox"} %>
-                  <label for="switch-toggle-<%= item_counter %>" class="switch-label" > 
+                  <label for="switch-toggle-<%= item_counter %>" class="switch-label" >
                     <div class="switch-inner"></div>
                     <div class="switch-toggle-switch"></div>
                   </label>
@@ -52,7 +52,7 @@
                 <p><%= track[:title] %></p>
               </div>
                 <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/<%= track["id"] %>" width="500" height="150" scrolling="no" frameborder="no"></iframe>
-              
+
 
               <%= hidden_field_tag "[content_items][#{item_counter}][title]", track["title"] %>
               <%= hidden_field_tag "[content_items][#{item_counter}][media_id]", track["id"] %>
@@ -67,13 +67,14 @@
                 <%= label_tag :latest, "To show latest work:" %>
                 <%= check_box_tag "[content_items][#{item_counter}][latest]", true %>
               </div>
+            </div>
             <% item_counter += 1 %>
           <% end %>
         <% else %>
           <h4 class="type-of-content">Soundcloud</h4>
           <p class="link-content">You don't have any content from Soundcloud. Click <%= link_to("Soundcloud", "/auth/soundcloud") %> to pull in content.</p>
         <% end %>
-          </div>
+
 
         <% if @videos %>
           <h4 class="type-of-content">Vimeo</h4>
@@ -87,7 +88,7 @@
                   <div class="switch-toggle-switch"></div>
                 </label>
                 </div>
-              
+
               <p><%= v["title"] %></p>
               </div>
               <iframe src="//player.vimeo.com/video/<%= v["id"] %>
@@ -129,7 +130,7 @@
                       <div class="switch-toggle-switch"></div>
                     </label>
                   </div>
-                  <p><%= v["title"] %></p> 
+                  <p><%= v["title"] %></p>
                 </div>
               <iframe id="ytplayer" type="text/html" width="500" height="350"
             src="http://www.youtube.com/embed/<%= v["video_id"] %>"
@@ -159,7 +160,7 @@
 
         <div class="actions"><%= submit_tag "submit" %></div>
       <% end %>
-    
+
     </div>
 
     </div>
