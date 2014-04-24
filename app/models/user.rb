@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  validates :email, uniqueness: true
+  validates :username, uniqueness: true
   has_many :providers
   has_many :contents
 
@@ -9,7 +11,8 @@ class User < ActiveRecord::Base
   def self.create_with_omniauth(auth_hash)
     self.create!(
       username: auth_hash['info']['nickname'],
-      avatar: auth_hash['info']['image']
+      avatar: auth_hash['info']['image'],
+      email: auth_hash['info']['email']
       )
   end
 
