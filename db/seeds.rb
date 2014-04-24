@@ -16,3 +16,8 @@ user2 = User.create(name: "Matthew Intreg", username: "Matthew Intreg", email: "
 Provider.create(provider_type: "vimeo", username: "Matthew Intreg", user_id: user2.id)
 user2.contents.create(user_id: user2.id, provider_id: 1, feedback: true, collab: true, media_id: "92301646", title: "Rainbow")
 user2.contents.create(user_id: user2.id, provider_id: 1, feedback: true, collab: true, media_id: "92224516", title: "The Lava")
+
+# user3 = User.create(name: "Andron Cross", username: "IzyBeats", email: "Izy@beatz.com", avatar:"https://i3.sndcdn.com/avatars-000033283376-6abi1t-t500x500.jpg?28a3374", bio: "Beatsmith and filmmaker hailing from Jamacia, but residing in Miami! I also DJ and do photography", producer: true, rapper: true, filmmaker: true, songwriter: true)
+# Provider.create(provider_type: "youtube", username: "IzyBeats", user_id: user.id)
+# user3.contents.create(user_id: user3.id, provider_id: 2, feedback: true, media_id: "0worZgfGptE", title: "Izybeats South beat 2")
+# user3.contents.create(user_id: user3.id, provider_id: 2, feedback: true, media_id: "N0J7hykBdPw", title: "Guitar 'Izy beats'")
