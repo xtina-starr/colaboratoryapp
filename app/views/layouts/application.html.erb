@@ -11,11 +11,13 @@
   <% unless @hide_navbar == true %>
     <%= render "/users/header" %>
   <% end %>
+
   <% if flash[:notice] %>
-    <div>
-      <%= flash[:notice] %>
+    <div class= "notice">
+      <%= flash[:notice]%>
     </div>
   <% end %>
+</div>
 <%= yield %>
 
 <% unless @hide_footer == true %>
