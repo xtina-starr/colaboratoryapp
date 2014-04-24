@@ -11,8 +11,8 @@ class UsersController < ApplicationController
     vimeo_provider = @user.providers.where(provider_type: "vimeo").first
     if vimeo_provider 
       @clientv = Vimeo::Advanced::Video.new(ENV["VIMEO_KEY"], ENV["VIMEO_SECRET"],
-        :token => current_user.providers.find_by(provider_type: "vimeo").token,
-        :secret => current_user.providers.find_by(provider_type: "vimeo").secret)
+        :token => vimeo_provider.token,
+        :secret => vimeo_provider.secret)
       @videos = @clientv.get_all(vimeo_provider.uid)
     end
 
