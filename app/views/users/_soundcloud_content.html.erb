@@ -6,7 +6,7 @@
       </div>
     <div class="caption">
       <span class="media-title"> <%= link_to content.title, content_path(content.id) %> 
-      <% if current_user.id == content.user_id %>
+      <% if current_user && current_user.id == content.user_id %>
         <span class="delete">
           <%= link_to "delete", delete_content_path(content.id) %>
         </span>
