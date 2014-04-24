@@ -7,6 +7,7 @@ Colaboratory::Application.routes.draw do
   get "/signin",     to: "static_pages#signin",     as: :signin
   root 'welcome#index'
   get "/edit",       to: "users#edit", as: :edit_user
+  get "/content/delete/:id", to: "contents#destroy", as: :delete_content
   
 
 

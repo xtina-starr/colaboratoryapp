@@ -24,6 +24,13 @@ class ContentsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def destroy
+    @content = Content.find(params[:id])
+
+    @content.destroy
+    redirect_to :back
+  end
+
   def search
     search_term = (params[:search])
     uri = URI::encode(search_term)

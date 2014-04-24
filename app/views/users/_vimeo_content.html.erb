@@ -7,6 +7,9 @@
       </div>
       <div class="caption">
       <p><%= link_to content.title, content_path(content.id) %></p>
+      <% if current_user.id == content.user_id %>
+        <span class="delete"><%= link_to "delete", delete_content_path(content.id) %></span>
+      <% end %>
       <p>By: <%= link_to content.user.username, user_path(content.user_id) %></p>
 
       <div class="tags">
