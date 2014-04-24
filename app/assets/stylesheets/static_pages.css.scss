@@ -479,7 +479,7 @@ h1.title{
         line-height: 1.45em;
 
         @include media($medium-screen) {
-          @include columns(2 8em);
+          /*@include columns(2 8em);*/
         }
       }
     }
