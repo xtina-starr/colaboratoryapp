@@ -8,11 +8,12 @@ class UsersController < ApplicationController
     @user = current_user
 
     # if current_user
-    if @user.providers.where(provider_type: "vimeo").first
+    vimeo_provider = @user.providers.where(provider_type: "vimeo").first
+    if vimeo_provider 
       @clientv = Vimeo::Advanced::Video.new(ENV["VIMEO_KEY"], ENV["VIMEO_SECRET"],
         :token => current_user.providers.find_by(provider_type: "vimeo").token,
         :secret => current_user.providers.find_by(provider_type: "vimeo").secret)
-      @videos = @clientv.get_all("colaboratory")
+      @videos = @clientv.get_all(vimeo_provider.uid)
     end
 
     if @user.providers.where(provider_type: "soundcloud").first
