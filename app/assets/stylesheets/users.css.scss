@@ -320,7 +320,6 @@ div.username h1, div.username p {
 }
 
 div.bio {
-  @include ellipsis(700px);
   text-align: justify;
 }
 
