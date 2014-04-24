@@ -517,7 +517,8 @@ h1.title{
   $tab-active-color: $tab-content-background;
   $tab-inactive-color: $base-body-color;
   $vertical-tabs-height: em(507);
-  margin: 4em;
+  margin-left: 4em;
+  margin-right: 4em;
   $vertical-tab-mode: $medium-screen;
 
   @include clearfix;
