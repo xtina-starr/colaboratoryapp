@@ -1,28 +1,35 @@
-== README
+Co Laboratory
+-----
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+###Created by Christina Thompson & Shadae Holmes
+---
+www.CoLaboratory.me
 
-Things you may want to cover:
+---
+####Problem Statement
+---
+Currently there are many websites for people to showcase their talents. But not a place for them to come togetether to explore the idea of collaboration. We intend to create a platform to assist in just that.
+---
+---
 
-* Ruby version
+####Project Description
 
-* System dependencies
+Platform for audio & video creators to display their work, solicitate feedback, & find collaborators.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+---
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+####Project Stack
+
+-Backend:
+ * [Ruby on Rails](https://www.google.com)
+
+
+-Front End:
+ *  [Bourbon](http://bourbon.io/)
+ *  [Neat](http://neat.bourbon.io/)
+ *  [Bitters](http://bitters.bourbon.io/)
+ *  [Refills](http://refills.bourbon.io/)
+
+-Hosted
+ * Amazon AWS
