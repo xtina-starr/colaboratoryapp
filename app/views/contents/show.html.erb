@@ -1,8 +1,8 @@
 <html class= "header-background">
   <body>
-    <h1><%= @content.title %></h1>
+    <h1 class="media-show"><%= @content.title %></h1>
 
-  <h3>Creator: <%= link_to @content.user.username, user_path(@content.user.id) %></h3>
+  <h3 class="media-show">Creator: <%= link_to @content.user.username, user_path(@content.user.id) %></h3>
     <% case @content.provider.provider_type %>
       <% when "soundcloud" %>
         <div class="content-show">

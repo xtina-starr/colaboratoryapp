@@ -6,9 +6,12 @@
             frameborder="0"></iframe>
       </div>
       <div class="caption">
-        <p><%= link_to content.title, content_path(content.id) %></p>
-        <% if current_user.id == content.user_id %>
-          <span class="delete"><%= link_to "delete", delete_content_path(content.id) %></span>
+        <span class"media-title"><%= link_to content.title, content_path(content.id) %>
+        <% if current_user && current_user.id == content.user_id %>
+          <span class="delete">
+            <%= link_to "delete", delete_content_path(content.id) %>
+          </span>
+        </span>
         <% end %>
         <p>By: <%= link_to content.user.username, user_path(content.user_id) %></p>
 

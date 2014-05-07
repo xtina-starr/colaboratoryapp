@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403172916) do
+ActiveRecord::Schema.define(version: 20140424202413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140403172916) do
     t.boolean  "collab",      default: false
     t.boolean  "feedback",    default: false
     t.boolean  "latest",      default: false
-    t.integer  "media_id"
+    t.string   "media_id"
     t.string   "title"
     t.string   "media_type"
     t.datetime "created_at"

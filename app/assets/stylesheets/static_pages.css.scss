@@ -8,7 +8,7 @@ body.learnmore {
   background: image-url('brickwall.png');
   background-repeat: repeat;
   -webkit-backface-visibility: hidden;
-  font-family: "Lato";
+  font-family: "Leto";
 }
 
 div.background-container {
@@ -479,7 +479,7 @@ h1.title{
         line-height: 1.45em;
 
         @include media($medium-screen) {
-          @include columns(2 8em);
+          /*@include columns(2 8em);*/
         }
       }
     }
@@ -517,7 +517,8 @@ h1.title{
   $tab-active-color: $tab-content-background;
   $tab-inactive-color: $base-body-color;
   $vertical-tabs-height: em(507);
-  margin: 4em;
+  margin-left: 4em;
+  margin-right: 4em;
   $vertical-tab-mode: $medium-screen;
 
   @include clearfix;

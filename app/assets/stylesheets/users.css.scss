@@ -467,7 +467,7 @@ div.user-info h5 {
 
 div.user-info p.location {
   font-size: 16px;
-  font-weight: normal;
+  font-weight: lighter;
 }
 
 div.user-info {
@@ -486,7 +486,8 @@ div.audio {
   text-align: center;
   margin: 10px auto 30px auto;
   width: 700px;
-  border: 1px solid #444;
+  border: 10px solid light-gray;
+  border-style: outset;
   height: 340px;
   padding: 35px;
 }
@@ -498,7 +499,8 @@ div.bio p {
 div.v-vids {
   text-align: center;
   margin: 10px auto 30px auto;
-  border: 1px solid #444;
+  border: 10px solid light-gray;
+  border-style: outset;
   width: 700px;
   /*height: 500px;*/
   padding: 30px;
@@ -507,7 +509,8 @@ div.v-vids {
 div.y-vids {
   text-align: center;
   margin: 10px auto 30px auto;
-  border: 1px solid #444;
+  border: 10px solid light-gray;
+  border-style: outset;
   width: 700px;
   /*height: 500px;*/
   padding: 30px;
@@ -622,11 +625,7 @@ div.profile-userinfo div.avatar {
     height: 150px;
     -moz-border-radius: 75px;
     -webkit-border-radius: 75px;
-    border-radius: 75px;
-}
-
-div.profile-userinfo h5 {
-  font-weight: normal;
+    border-radius: 100%;
 }
 
 div.profile-userinfo div.roles {
@@ -641,11 +640,7 @@ div.profile-bio {
 
 div.profile-userinfo p.location {
   font-size: 16px;
-  font-weight: normal;
-}
-
-div.profile-userinfo a {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: lighter;
 }
 
 div.link-account {
