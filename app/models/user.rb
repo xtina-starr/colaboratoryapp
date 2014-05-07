@@ -23,5 +23,13 @@ class User < ActiveRecord::Base
       "https://i1.wp.com/i.vimeocdn.com/portrait/default-red_300x300.png?ssl=1"
     end
   end
+
+  def self.website_update(website)
+    if website.include?("http://")
+      website
+    else
+      "http://" + website
+    end
+  end
   
 end
