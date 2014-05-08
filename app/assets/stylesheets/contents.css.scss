@@ -85,3 +85,13 @@ span.delete a {
 .media-title {
   margin-left: 2.5em;
 }
+
+div.no-results {
+  height: 500px;
+}
+
+div.no-results p {
+  text-align: center;
+  font-size: 22px;
+  margin: 20px auto;
+}
