@@ -17,7 +17,7 @@ class Content < ActiveRecord::Base
   end
 
   def self.latest
-    self.where("feedback = ?", true)
+    self.where("latest = ?", true)
   end
 
 end
