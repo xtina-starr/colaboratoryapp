@@ -51,7 +51,7 @@ class UsersController < ApplicationController
       username: params[:username],
       email: params[:email],
       location: params[:location],
-      website: params[:website],
+      website: User.website_update(params[:website]),
       bio: params[:bio],
       dj: params[:dj],
       producer: params[:producer],

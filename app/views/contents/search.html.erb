@@ -4,9 +4,15 @@
       <%= link_to "Collaborate", collaboration_path %> | <%= link_to "Feedback", feedback_path %> | <%= link_to "Latest", latest_path %>
     </div>
     <div class="all-content">
-      <% @contents.each do |content| %>
-        <%= render "users/#{content.provider.provider_type}_content", content: content %>
-      <% end %>
+      <% if @contents.any? %>
+        <% @contents.each do |content| %>
+          <%= render "users/#{content.provider.provider_type}_content", content: content %>
+        <% end %>
+      <% else %>
+        <div class="no-results">
+          <p>There are no results for the search.</p>
+        </div>
+      <% end%>
     </div>
   </body>
 </html>
