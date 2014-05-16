@@ -21,9 +21,9 @@ class UsersController < ApplicationController
       @tracks = @client.get('/me/tracks')
     end
 
-    if @user.providers.where(provider_type: "google_oauth2").first
+    if youtube_prov = @user.providers.where(provider_type: "google_oauth2").first
 
-      user_token = @user.providers.where(provider_type: "google_oauth2").first.token
+      user_token = youtube_prov.token
 
       @youtubes = YoutubeProvider.new.get_videos_for(user_token)
     end
