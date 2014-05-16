@@ -1,6 +1,5 @@
 class YoutubeProvider
   
-
   def initialize
     @key = ENV['GOOGLE_API_KEYS']
   end
@@ -41,7 +40,8 @@ class YoutubeProvider
     end
 
     channel = HTTParty.get("https://www.googleapis.com/youtube/v3/channels?part=id&mine=true&access_token=#{user_token}&key=#{@key}")
-    channel['items'].first['id']
+    # channel['items'].first['id']
+    channel['items'].collect{|x| x['id']}
   end
 
   # get upload playlist from channel
@@ -65,14 +65,11 @@ class YoutubeProvider
   end
 
   def get_videos_for(user_token)
-    playlist_id = get_channels_for_user(user_token)
-    playlist_items = get_uploads_playlist_items(playlist_id)
-
+    playlist_ids = get_channels_for_user(user_token)
+    playlist_ids.each do |playlist_id|
+      playlist_items = get_uploads_playlist_items(playlist_id)
+    end
     get_playlist_items(playlist_items)
-  end
-
-  def self.get_client
-    # HTTParty.get('https://www.googleapis.com/youtube/v3/videos?part=id&id=UCiK6WR3r4PAG7SvAO3AeVvg&key=@key')
   end
 
 end
