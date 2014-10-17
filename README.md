@@ -14,7 +14,7 @@ Currently there are many websites for people to showcase their talents. But not 
 
 ####Project Description
 
-Platform for audio & video creators to display their work, solicitate feedback, & find collaborators.
+Platform for audio & video creators to display their work, solicit feedback, & find collaborators.
 
 ---
 
